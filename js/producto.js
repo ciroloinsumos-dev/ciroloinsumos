@@ -1,33 +1,56 @@
 document.addEventListener("DOMContentLoaded", iniciar);
 
-async function iniciar(){
+async function iniciar() {
 
     const parametros = new URLSearchParams(window.location.search);
 
-    const codigo = parametros.get("codigo");
+    const id = parametros.get("id");
 
-    if(!codigo){
+    if (!id) {
 
-        alert("No se indicó un código.");
+        alert("No se indicó un producto.");
 
         return;
 
     }
 
-    const producto = await obtenerProducto(codigo);
+    const inventario = await API.obtenerInventario(id);
 
-    console.log(producto);
+    if (!inventario || inventario.error) {
 
-    document.getElementById("titulo").textContent=producto.titulo;
+        alert("Producto no encontrado.");
 
-    document.getElementById("descripcion").textContent=producto.descripcion;
+        return;
 
-    document.getElementById("categoria").textContent=producto.categoria;
+    }
 
-    document.getElementById("precio").textContent="$ "+producto.precio;
+    const producto = await API.obtenerProducto(inventario.codigoProducto);
 
-    document.getElementById("peso").textContent=producto.peso;
+    if (!producto || producto.error) {
 
-    document.getElementById("marca").textContent=producto.marca;
+        alert("Producto no encontrado.");
+
+        return;
+
+    }
+
+    const taller = await API.obtenerTaller(inventario.codigoTaller);
+
+    document.getElementById("titulo").textContent = producto.titulo;
+    document.getElementById("descripcion").textContent = producto.descripcion;
+    document.getElementById("categoria").textContent = producto.categoria;
+    document.getElementById("precio").textContent = "$ " + producto.precio;
+    document.getElementById("peso").textContent = producto.peso;
+    document.getElementById("marca").textContent = producto.marca;
+
+    if (document.getElementById("taller")) {
+        document.getElementById("taller").textContent = taller.nombre;
+    }
+
+    console.log({
+        inventario,
+        producto,
+        taller
+    });
 
 }
