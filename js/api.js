@@ -1,9 +1,3 @@
-/* ==========================================================
-   CIROLO INSUMOS
-   Archivo: api.js
-   Versión: 0.2.0
-========================================================== */
-
 const API = {
 
     async obtenerProductos() {
@@ -16,9 +10,7 @@ const API = {
                 throw new Error("No fue posible conectar con la API.");
             }
 
-            const datos = await respuesta.json();
-
-            return datos;
+            return await respuesta.json();
 
         } catch (error) {
 
@@ -30,19 +22,70 @@ const API = {
 
     },
 
+
     async obtenerProducto(codigo) {
 
         try {
 
-            const respuesta = await fetch(`${CONFIG.API_URL}?accion=producto&codigo=${encodeURIComponent(codigo)}`);
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=producto&codigo=${encodeURIComponent(codigo)}`
+            );
 
             if (!respuesta.ok) {
                 throw new Error("Producto no encontrado.");
             }
 
-            const datos = await respuesta.json();
+            return await respuesta.json();
 
-            return datos;
+        } catch (error) {
+
+            console.error(error);
+
+            return null;
+
+        }
+
+    },
+
+
+    async obtenerInventario(id) {
+
+        try {
+
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=inventario&id=${encodeURIComponent(id)}`
+            );
+
+            if (!respuesta.ok) {
+                throw new Error("Inventario no encontrado.");
+            }
+
+            return await respuesta.json();
+
+        } catch (error) {
+
+            console.error(error);
+
+            return null;
+
+        }
+
+    },
+
+
+    async obtenerTaller(codigo) {
+
+        try {
+
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=taller&codigo=${encodeURIComponent(codigo)}`
+            );
+
+            if (!respuesta.ok) {
+                throw new Error("Taller no encontrado.");
+            }
+
+            return await respuesta.json();
 
         } catch (error) {
 
