@@ -3,46 +3,59 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Producto</title>
+    <title>Producto</title>
 
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/estilos.css">
-<link rel="stylesheet" href="css/producto.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/producto.css">
 
 </head>
 
 <body>
 
-<h1 id="titulo">Cargando...</h1>
+    <main class="producto">
 
-<img id="foto" width="300">
+        <h1 id="titulo">Cargando...</h1>
 
-<p><strong>Descripción:</strong></p>
-<p id="descripcion"></p>
+        <img id="foto" src="" alt="" width="350">
 
-<p><strong>Categoría:</strong>
-<span id="categoria"></span>
-</p>
+        <p id="descripcion"></p>
 
-<p><strong>Precio:</strong>
-<span id="precio"></span>
-</p>
+        <div class="datos">
 
-<p><strong>Peso:</strong>
-<span id="peso"></span>
-</p>
+            <p><strong>Categoría:</strong> <span id="categoria"></span></p>
 
-<p><strong>Marca:</strong>
-<span id="marca"></span>
-</p>
+            <p><strong>Peso:</strong> <span id="peso"></span></p>
 
-<script src="js/config.js"></script>
-<script src="js/api.js"></script>
-<script src="js/producto.js"></script>
+            <p><strong>Marca:</strong> <span id="marca"></span></p>
+
+            <p><strong>Taller:</strong> <span id="taller"></span></p>
+
+        </div>
+
+        <h2 id="precio"></h2>
+
+        <div class="botones">
+
+            <button id="btnTransferencia">
+                Pagar por Transferencia
+            </button>
+
+            <a id="btnMP" href="#">
+                Pagar con Mercado Pago
+            </a>
+
+        </div>
+
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/producto.js"></script>
 
 </body>
 
