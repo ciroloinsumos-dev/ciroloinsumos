@@ -10,16 +10,23 @@ async function iniciar() {
 
         if (!id) {
 
+            ocultarLoader();
+
             alert("No se indicó un producto.");
 
             return;
 
         }
 
-        // Buscar el registro de inventario
+        // ==========================
+        // INVENTARIO
+        // ==========================
+
         const inventario = await API.obtenerInventario(id);
 
         if (!inventario || inventario.error) {
+
+            ocultarLoader();
 
             alert("Inventario no encontrado.");
 
@@ -27,10 +34,15 @@ async function iniciar() {
 
         }
 
-        // Buscar el producto
+        // ==========================
+        // PRODUCTO
+        // ==========================
+
         const producto = await API.obtenerProducto(inventario.codigoProducto);
 
         if (!producto || producto.error) {
+
+            ocultarLoader();
 
             alert("Producto no encontrado.");
 
@@ -38,10 +50,15 @@ async function iniciar() {
 
         }
 
-        // Buscar el taller
+        // ==========================
+        // TALLER
+        // ==========================
+
         const taller = await API.obtenerTaller(inventario.codigoTaller);
 
         if (!taller || taller.error) {
+
+            ocultarLoader();
 
             alert("Taller no encontrado.");
 
@@ -49,16 +66,9 @@ async function iniciar() {
 
         }
 
-        // ===== Datos del producto =====
-
-        document.getElementById("titulo").textContent = producto.titulo;
-        document.getElementById("descripcion").textContent = producto.descripcion;
-        document.getElementById("categoria").textContent = producto.categoria;
-        document.getElementById("precio").textContent = CONFIG.MONEDA + " " + producto.precio;
-        document.getElementById("peso").textContent = producto.peso;
-        document.getElementById("marca").textContent = producto.marca;
-
-        // ===== Foto =====
+        // ==========================
+        // FOTO
+        // ==========================
 
         const foto = document.getElementById("foto");
 
@@ -69,7 +79,20 @@ async function iniciar() {
 
         }
 
-        // ===== Taller =====
+        // ==========================
+        // DATOS DEL PRODUCTO
+        // ==========================
+
+        document.getElementById("titulo").textContent = producto.titulo;
+        document.getElementById("descripcion").textContent = producto.descripcion;
+        document.getElementById("categoria").textContent = producto.categoria;
+        document.getElementById("precio").textContent = CONFIG.MONEDA + " " + producto.precio;
+        document.getElementById("peso").textContent = producto.peso;
+        document.getElementById("marca").textContent = producto.marca;
+
+        // ==========================
+        // TALLER
+        // ==========================
 
         const nombreTaller = document.getElementById("taller");
 
@@ -79,7 +102,9 @@ async function iniciar() {
 
         }
 
-        // ===== Botón Mercado Pago =====
+        // ==========================
+        // BOTÓN MERCADO PAGO
+        // ==========================
 
         const btnMP = document.getElementById("btnMP");
 
@@ -89,17 +114,59 @@ async function iniciar() {
 
         }
 
-        // ===== Consola =====
+        // ==========================
+        // BOTÓN TRANSFERENCIA
+        // ==========================
+
+        const btnTransferencia = document.getElementById("btnTransferencia");
+
+        if (btnTransferencia) {
+
+            btnTransferencia.addEventListener("click", () => {
+
+                window.location.href = `transferencia.html?id=${id}`;
+
+            });
+
+        }
+
+        // ==========================
+        // OCULTAR LOADER
+        // ==========================
+
+        ocultarLoader();
+
+        // ==========================
+        // DEBUG
+        // ==========================
 
         console.log("Inventario:", inventario);
         console.log("Producto:", producto);
         console.log("Taller:", taller);
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.error(error);
 
+        ocultarLoader();
+
         alert("Ocurrió un error al cargar el producto.");
+
+    }
+
+}
+
+//==================================
+
+function ocultarLoader(){
+
+    const loader = document.getElementById("loader");
+
+    if(loader){
+
+        loader.style.display = "none";
 
     }
 
