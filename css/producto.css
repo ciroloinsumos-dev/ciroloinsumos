@@ -1,0 +1,199 @@
+/* ==========================================
+   PRODUCTO
+========================================== */
+
+body{
+
+    margin:0;
+    padding:30px 15px;
+
+    background:#f5f5f5;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.producto{
+
+    max-width:700px;
+
+    margin:auto;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.12);
+
+}
+
+#foto{
+
+    width:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    max-height:420px;
+
+    background:#fff;
+
+}
+
+.contenido{
+
+    padding:30px;
+
+}
+
+#titulo{
+
+    margin:0;
+
+    font-size:34px;
+
+    color:#222;
+
+}
+
+#descripcion{
+
+    margin-top:18px;
+
+    color:#555;
+
+    line-height:1.6;
+
+}
+
+.datos{
+
+    margin-top:25px;
+
+    display:grid;
+
+    gap:12px;
+
+}
+
+.datos p{
+
+    margin:0;
+
+    color:#444;
+
+}
+
+#precio{
+
+    margin-top:30px;
+
+    font-size:38px;
+
+    font-weight:bold;
+
+    color:#0f7a38;
+
+}
+
+.botones{
+
+    margin-top:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.botones a,
+.botones button{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#btnTransferencia{
+
+    background:#1565c0;
+
+    color:#fff;
+
+}
+
+#btnTransferencia:hover{
+
+    background:#0d47a1;
+
+}
+
+#btnMP{
+
+    background:#00b1ea;
+
+    color:#fff;
+
+}
+
+#btnMP:hover{
+
+    background:#0096c7;
+
+}
+
+@media(max-width:700px){
+
+    body{
+
+        padding:0;
+
+    }
+
+    .producto{
+
+        border-radius:0;
+
+    }
+
+    .contenido{
+
+        padding:20px;
+
+    }
+
+    #titulo{
+
+        font-size:28px;
+
+    }
+
+    #precio{
+
+        font-size:32px;
+
+    }
+
+}
