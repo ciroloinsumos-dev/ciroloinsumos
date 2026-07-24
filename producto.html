@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    
+
 <div id="loader" class="loader">
 
     <div class="loader-card">
@@ -28,39 +28,62 @@
     </div>
 
 </div>
-    <main class="producto">
 
-    <img id="foto">
+<main class="producto">
+
+    <div class="imagen">
+
+        <img id="foto" alt="Producto">
+
+    </div>
 
     <div class="contenido">
 
         <h1 id="titulo"></h1>
 
+        <h2 id="precio"></h2>
+
         <p id="descripcion"></p>
 
         <div class="datos">
 
-            <p><strong>Categoría:</strong> <span id="categoria"></span></p>
+            <p>
+                <strong>Categoría</strong>
+                <span id="categoria"></span>
+            </p>
 
-            <p><strong>Peso:</strong> <span id="peso"></span></p>
+            <p>
+                <strong>Peso</strong>
+                <span id="peso"></span>
+            </p>
 
-            <p><strong>Marca:</strong> <span id="marca"></span></p>
+            <p>
+                <strong>Marca</strong>
+                <span id="marca"></span>
+            </p>
 
-            <p><strong>Taller:</strong> <span id="taller"></span></p>
+            <p>
+                <strong>Taller</strong>
+                <span id="taller"></span>
+            </p>
 
         </div>
 
-        <h2 id="precio"></h2>
+        <div class="formasPago">
 
-        <div class="botones">
+            <p>Pagá por Transferencia o Mercado Pago</p>
 
-            <button id="btnTransferencia">
-                Pagar por Transferencia
-            </button>
+            <div class="botones">
 
-            <a id="btnMP" href="#">
-                Pagar con Mercado Pago
-            </a>
+                <button id="btnTransferencia">
+                    Transferencia
+                </button>
+
+                <a id="btnMP" href="#">
+                    Mercado Pago
+                </a>
+
+            </div>
 
         </div>
 
@@ -68,9 +91,9 @@
 
 </main>
 
-    <script src="js/config.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/producto.js"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/producto.js"></script>
 
 </body>
 

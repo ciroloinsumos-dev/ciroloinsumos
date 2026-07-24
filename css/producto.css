@@ -1,13 +1,13 @@
-/* ==========================================
-   PRODUCTO
-========================================== */
+/*=========================================
+PRODUCTO
+=========================================*/
 
 body{
 
     margin:0;
-    padding:20px;
+    padding:30px;
 
-    background:#f2f2f2;
+    background:#f4f5f7;
 
     font-family:Arial, Helvetica, sans-serif;
 
@@ -15,41 +15,58 @@ body{
 
 .producto{
 
-    max-width:380px;
+    max-width:1150px;
 
     margin:auto;
 
     background:#fff;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    overflow:hidden;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
 
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:45px;
+
+    padding:35px;
+
+}
+
+/*=========================================
+IMAGEN
+=========================================*/
+
+.imagen{
+
+    display:flex;
+    align-items:flex-start;
 
 }
 
 #foto{
 
     width:100%;
-
-    height:240px;
+    aspect-ratio:16 / 10;
 
     object-fit:contain;
 
-    display:block;
+    border-radius:14px;
 
     background:#fff;
 
-    padding:15px;
-
-    box-sizing:border-box;
-
 }
+
+/*=========================================
+CONTENIDO
+=========================================*/
 
 .contenido{
 
-    padding:24px;
+    display:flex;
+    flex-direction:column;
 
 }
 
@@ -57,107 +74,103 @@ body{
 
     margin:0;
 
-    font-size:18px;
+    font-size:46px;
 
-    font-weight:700;
+    font-weight:600;
 
-    color:#2b2b2b;
+    color:#222;
 
 }
 
 #precio{
 
-    margin:15px 0;
+    margin:10px 0 25px;
 
-    font-size:24px;
+    font-size:42px;
 
-    font-weight:bold;
+    font-weight:400;
 
-    color:#1d7c48;
+    color:#2f8f4e;
 
 }
 
 #descripcion{
 
+    font-size:17px;
+
+    line-height:1.7;
+
     color:#666;
 
-    font-size:15px;
-
-    line-height:1.5;
-
-    margin-bottom:20px;
+    margin-bottom:25px;
 
 }
 
-.taller{
+/*=========================================
+DATOS
+=========================================*/
 
-    background:#f8f8f8;
+.datos{
 
-    border-left:4px solid #2d6a5b;
+    display:grid;
 
-    border-radius:10px;
+    gap:16px;
 
-    padding:12px 14px;
-
-    margin-bottom:20px;
-
-}
-
-.taller span{
-
-    display:block;
+    margin-bottom:35px;
 
 }
 
-.tituloTaller{
+.datos p{
 
-    font-size:12px;
+    display:flex;
 
-    color:#777;
+    justify-content:space-between;
 
-    margin-bottom:4px;
+    align-items:center;
 
-}
+    padding-bottom:12px;
 
-#taller{
+    border-bottom:1px solid #ececec;
 
-    font-size:16px;
-
-    font-weight:600;
-
-    color:#333;
+    margin:0;
 
 }
 
-.detalles{
-
-    border-top:1px solid #ececec;
-
-    padding-top:18px;
-
-    margin-top:18px;
-
-}
-
-.detalles summary{
-
-    cursor:pointer;
-
-    font-weight:bold;
+.datos strong{
 
     color:#444;
 
-    margin-bottom:10px;
+    font-size:15px;
 
 }
 
-.detalles p{
+.datos span{
 
-    margin:8px 0;
+    color:#222;
+
+    font-size:16px;
+
+}
+
+/*=========================================
+PAGOS
+=========================================*/
+
+.formasPago{
+
+    margin-top:auto;
+
+}
+
+.formasPago p{
+
+    text-align:center;
+
+    font-size:18px;
 
     color:#555;
 
-    font-size:14px;
+    margin-bottom:18px;
 
 }
 
@@ -165,87 +178,70 @@ body{
 
     display:flex;
 
-    flex-direction:column;
-
-    gap:12px;
-
-    margin-top:25px;
+    gap:15px;
 
 }
 
 .botones button,
 .botones a{
 
-    width:100%;
+    flex:1;
 
-    padding:15px;
+    height:52px;
 
     border:none;
 
     border-radius:12px;
 
-    text-decoration:none;
+    display:flex;
 
-    text-align:center;
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
 
     font-size:17px;
 
-    font-weight:bold;
+    font-weight:600;
 
     cursor:pointer;
 
     transition:.25s;
 
-    box-sizing:border-box;
-
 }
 
 #btnTransferencia{
 
-    background:#2d6a5b;
+    background:#2d8f45;
 
-    color:#fff;
+    color:white;
 
 }
 
 #btnTransferencia:hover{
 
-    background:#24584b;
+    background:#237238;
 
 }
 
 #btnMP{
 
-    background:#00a7e1;
+    background:#009ee3;
 
-    color:#fff;
+    color:white;
 
 }
 
 #btnMP:hover{
 
-    background:#008fc0;
+    background:#0085bf;
 
 }
 
-@media (max-width:480px){
-
-    body{
-
-        padding:12px;
-
-    }
-
-    .producto{
-
-        max-width:100%;
-
-    }
-
-}
-/*=========================
+/*=========================================
 LOADER
-=========================*/
+=========================================*/
 
 .loader{
 
@@ -253,7 +249,7 @@ LOADER
 
     inset:0;
 
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.95);
 
     display:flex;
 
@@ -273,19 +269,7 @@ LOADER
 
     border-radius:18px;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
-
-    text-align:center;
-
-}
-
-.loader p{
-
-    margin-top:20px;
-
-    color:#555;
-
-    font-weight:600;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
 
 }
 
@@ -297,7 +281,7 @@ LOADER
 
     border:5px solid #ddd;
 
-    border-top:5px solid #2d6a5b;
+    border-top:5px solid #2d8f45;
 
     border-radius:50%;
 
@@ -307,11 +291,61 @@ LOADER
 
 }
 
+.loader p{
+
+    margin-top:20px;
+
+    text-align:center;
+
+}
+
 @keyframes girar{
 
     to{
 
         transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================
+MOBILE
+=========================================*/
+
+@media(max-width:900px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .producto{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+        padding:22px;
+
+    }
+
+    #titulo{
+
+        font-size:34px;
+
+    }
+
+    #precio{
+
+        font-size:34px;
+
+    }
+
+    .botones{
+
+        flex-direction:column;
 
     }
 
