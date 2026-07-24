@@ -102,13 +102,13 @@ async function iniciar() {
 
         }
 
- // ==========================
-// BOTÓN MERCADO PAGO
-// ==========================
+        // ==========================
+        // BOTÓN MERCADO PAGO
+        // ==========================
 
-const btnMP = document.getElementById("btnMP");
+        const btnMP = document.getElementById("btnMP");
 
-if (btnMP) {
+        if (btnMP) {
 
     btnMP.addEventListener("click", async (e) => {
 
@@ -144,7 +144,7 @@ if (btnMP) {
 
     });
 
-}
+        }
 
         // ==========================
         // BOTÓN TRANSFERENCIA
