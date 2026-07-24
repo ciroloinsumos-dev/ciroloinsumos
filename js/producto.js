@@ -110,20 +110,20 @@ async function iniciar() {
 
         if (btnMP) {
 
-    btnMP.addEventListener("click", async (e) => {
+            btnMP.addEventListener("click", async (e) => {
 
-        e.preventDefault();
+                e.preventDefault();
 
-        try {
+                try {
 
-            btnMP.disabled = true;
-            btnMP.textContent = "Conectando con Mercado Pago...";
+                btnMP.disabled = true;
+                btnMP.textContent = "Conectando con Mercado Pago...";
 
-            const pago = await API.crearPreferencia(id);
+                const pago = await API.crearPreferencia(id);
 
-            if (!pago.init_point) {
+                if (!pago.init_point) {
 
-                throw new Error("No fue posible crear el pago.");
+                 throw new Error("No fue posible crear el pago.");
 
             }
 
