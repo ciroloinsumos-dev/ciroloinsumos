@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transferencia</title>
+
+    <link rel="stylesheet" href="css/transferencia.css">
+
+</head>
+
+<body>
+
+<div id="loader" class="loader">
+
+    <div class="loader-card">
+
+        <div class="spinner"></div>
+
+        <p>Cargando datos...</p>
+
+    </div>
+
+</div>
+
+<main class="tarjeta">
+
+    <img id="foto">
+
+    <div class="contenido">
+
+        <h1 id="titulo"></h1>
+
+        <div class="precio">
+
+            <label>Importe</label>
+
+            <h2 id="precio"></h2>
+
+        </div>
+
+        <div class="dato">
+
+            <label>Alias</label>
+
+            <span id="alias"></span>
+
+            <button id="copiarAlias">Copiar Alias</button>
+
+        </div>
+
+        <div class="dato">
+
+            <label>CBU</label>
+
+            <span id="cbu"></span>
+
+            <button id="copiarCBU">Copiar CBU</button>
+
+        </div>
+
+        <div class="dato">
+
+            <label>Titular</label>
+
+            <span id="titular"></span>
+
+        </div>
+
+        <button id="btnConfirmar">
+
+            Ya realicé la transferencia
+
+        </button>
+
+    </div>
+
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/transferencia.js"></script>
+
+</body>
+
+</html>

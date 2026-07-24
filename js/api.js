@@ -1,5 +1,19 @@
 const API = {
+    
+    async crearOperacion(id, medio) {
 
+    const url =
+        CONFIG.API +
+        "?accion=crearOperacion" +
+        "&id=" + encodeURIComponent(id) +
+        "&medio=" + encodeURIComponent(medio);
+
+    const respuesta = await fetch(url);
+
+    return await respuesta.json();
+
+},
+    
     async obtenerProductos() {
 
         try {
