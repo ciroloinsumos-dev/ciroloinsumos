@@ -86,7 +86,7 @@ async function iniciar() {
         document.getElementById("titulo").textContent = producto.titulo;
         document.getElementById("descripcion").textContent = producto.descripcion;
         document.getElementById("categoria").textContent = producto.categoria;
-        document.getElementById("precio").textContent = CONFIG.MONEDA + " " + Number(producto.precio).toLocaleString("es-AR");
+        document.getElementById("precio").textContent = CONFIG.MONEDA  + " " + Number(producto.precio).toLocaleString("es-AR");
         document.getElementById("peso").textContent = producto.peso;
         document.getElementById("marca").textContent = producto.marca;
 
