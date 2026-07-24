@@ -86,6 +86,17 @@ const API = {
 
     },
 
+    async operacionesPendientes() {
+
+    const respuesta = await fetch(
+
+        CONFIG.API + "?accion=operacionesPendientes"
+
+    );
+
+    return await respuesta.json();
+
+    },
 
     async obtenerTaller(codigo) {
 
