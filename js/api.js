@@ -1,40 +1,36 @@
 const API = {
-    
+
     async crearOperacion(id, medio) {
 
-    const url =
-        CONFIG.API_URL +
-        "?accion=crearOperacion" +
-        "&id=" + encodeURIComponent(id) +
-        "&medio=" + encodeURIComponent(medio);
+        const url =
+            CONFIG.API_URL +
+            "?accion=crearOperacion" +
+            "&id=" + encodeURIComponent(id) +
+            "&medio=" + encodeURIComponent(medio);
 
-    const respuesta = await fetch(url);
+        const respuesta = await fetch(url);
 
-    return await respuesta.json();
-
-    },
-
-    async obtenerOperacion(op){
-
-    const respuesta = await fetch(
-
-        CONFIG.API_URL + "?accion=operacion&op=" + op
-
-    );
-
-    return await respuesta.json();
+        return await respuesta.json();
 
     },
 
-    async entregarOperacion(op){
+    async obtenerOperacion(op) {
 
-    const respuesta = await fetch(
+        const respuesta = await fetch(
+            CONFIG.API_URL + "?accion=operacion&op=" + op
+        );
 
-        CONFIG.API_URL + "?accion=entregarOperacion&op=" + op
+        return await respuesta.json();
 
-    );
+    },
 
-    return await respuesta.json();
+    async entregarOperacion(op) {
+
+        const respuesta = await fetch(
+            CONFIG.API_URL + "?accion=entregarOperacion&op=" + op
+        );
+
+        return await respuesta.json();
 
     },
 
@@ -42,7 +38,9 @@ const API = {
 
         try {
 
-            const respuesta = await fetch(`${CONFIG.API_URL}?accion=productos`);
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=productos`
+            );
 
             if (!respuesta.ok) {
                 throw new Error("No fue posible conectar con la API.");
@@ -59,7 +57,6 @@ const API = {
         }
 
     },
-
 
     async obtenerProducto(codigo) {
 
@@ -85,7 +82,6 @@ const API = {
 
     },
 
-
     async obtenerInventario(id) {
 
         try {
@@ -110,18 +106,6 @@ const API = {
 
     },
 
-    async operacionesPendientes() {
-
-    const respuesta = await fetch(
-
-        CONFIG.API_URL + "?accion=operacionesPendientes"
-
-    );
-
-    return await respuesta.json();
-
-    },
-
     async obtenerTaller(codigo) {
 
         try {
@@ -143,6 +127,40 @@ const API = {
             return null;
 
         }
+
+    },
+
+    async obtenerConfiguracion() {
+
+        try {
+
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=configuracion`
+            );
+
+            if (!respuesta.ok) {
+                throw new Error("No fue posible obtener la configuración.");
+            }
+
+            return await respuesta.json();
+
+        } catch (error) {
+
+            console.error(error);
+
+            return null;
+
+        }
+
+    },
+
+    async operacionesPendientes() {
+
+        const respuesta = await fetch(
+            CONFIG.API_URL + "?accion=operacionesPendientes"
+        );
+
+        return await respuesta.json();
 
     }
 

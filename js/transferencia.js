@@ -12,7 +12,7 @@ async function iniciar() {
 
         const producto = await API.obtenerProducto(inventario.codigoProducto);
 
-        const taller = await API.obtenerTaller(inventario.codigoTaller);
+        const configuracion = await API.obtenerConfiguracion();
 
         foto.src = producto.foto;
 
@@ -20,19 +20,17 @@ async function iniciar() {
 
         precio.textContent = CONFIG.MONEDA + " " + producto.precio;
 
-        alias.textContent = taller.alias;
+        alias.textContent = configuracion.alias;
 
-        cbu.textContent = taller.cbu;
+        cbu.textContent = configuracion.cbu;
 
-        titular.textContent = taller.titular;
+        titular.textContent = configuracion.titular;
 
         document.getElementById("loader").style.display = "none";
 
-        document.getElementById("copiarImporte").onclick = () => copiar(producto.precio);
+        document.getElementById("copiarAlias").onclick = () => copiar(configuracion.alias);
 
-        document.getElementById("copiarAlias").onclick = () => copiar(taller.alias);
-
-        document.getElementById("copiarCBU").onclick = () => copiar(taller.cbu);
+        document.getElementById("copiarCBU").onclick = () => copiar(configuracion.cbu);
 
         document.getElementById("btnConfirmar").onclick = async () => {
 
