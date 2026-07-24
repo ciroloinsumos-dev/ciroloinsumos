@@ -12,8 +12,32 @@ const API = {
 
     return await respuesta.json();
 
-},
-    
+    },
+
+    async obtenerOperacion(op){
+
+    const respuesta = await fetch(
+
+        CONFIG.API + "?accion=operacion&op=" + op
+
+    );
+
+    return await respuesta.json();
+
+    },
+
+    async entregarOperacion(op){
+
+    const respuesta = await fetch(
+
+        CONFIG.API + "?accion=entregarOperacion&op=" + op
+
+    );
+
+    return await respuesta.json();
+
+    },
+          
     async obtenerProductos() {
 
         try {
