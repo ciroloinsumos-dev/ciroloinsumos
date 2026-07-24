@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", iniciar);
 
-async function iniciar(){
+async function iniciar() {
 
-    try{
+    try {
 
         const parametros = new URLSearchParams(window.location.search);
 
@@ -26,56 +26,63 @@ async function iniciar(){
 
         titular.textContent = taller.titular;
 
-        document.getElementById("loader").style.display="none";
+        document.getElementById("loader").style.display = "none";
 
-        document.getElementById("copiarAlias").onclick=()=>copiar(taller.alias);
+        document.getElementById("copiarImporte").onclick = () => copiar(producto.precio);
 
-        document.getElementById("copiarCBU").onclick=()=>copiar(taller.cbu);
+        document.getElementById("copiarAlias").onclick = () => copiar(taller.alias);
+
+        document.getElementById("copiarCBU").onclick = () => copiar(taller.cbu);
 
         document.getElementById("btnConfirmar").onclick = async () => {
 
-    const boton = document.getElementById("btnConfirmar");
+            const boton = document.getElementById("btnConfirmar");
 
-    boton.disabled = true;
-    boton.textContent = "Registrando operación...";
+            boton.disabled = true;
 
-    try {
+            boton.textContent = "Registrando operación...";
 
-        const respuesta = await API.crearOperacion(id, "TRANSFERENCIA");
+            try {
 
-        if (!respuesta.ok) {
+                const respuesta = await API.crearOperacion(id, "TRANSFERENCIA");
 
-            alert("No se pudo registrar la operación.");
+                if (!respuesta.ok) {
 
-            boton.disabled = false;
-            boton.textContent = "Ya realicé la transferencia";
+                    alert(respuesta.mensaje || "No se pudo registrar la operación.");
 
-            return;
+                    boton.disabled = false;
 
-        }
+                    boton.textContent = "Ya realicé la transferencia";
 
-        location.href = "gracias.html?op=" + respuesta.operacion;
+                    return;
+
+                }
+
+                location.href = "gracias.html?op=" + respuesta.operacion;
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                alert("Ocurrió un error al registrar la operación.");
+
+                boton.disabled = false;
+
+                boton.textContent = "Ya realicé la transferencia";
+
+            }
+
+        };
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
-        alert("Ocurrió un error.");
-
-        boton.disabled = false;
-        boton.textContent = "Ya realicé la transferencia";
-
-    }
-
-};
-
-    }
-
-    catch(e){
-
-        console.error(e);
+        document.getElementById("loader").style.display = "none";
 
         alert("Error al cargar los datos.");
 
@@ -83,10 +90,48 @@ async function iniciar(){
 
 }
 
-function copiar(texto){
+async function copiar(texto) {
 
-    navigator.clipboard.writeText(texto);
+    try {
 
-    alert("Copiado al portapapeles");
+        await navigator.clipboard.writeText(texto);
+
+        mostrarMensaje("Copiado al portapapeles");
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("No fue posible copiar el texto.");
+
+    }
+
+}
+
+function mostrarMensaje(texto) {
+
+    const mensaje = document.createElement("div");
+
+    mensaje.className = "toast";
+
+    mensaje.textContent = texto;
+
+    document.body.appendChild(mensaje);
+
+    setTimeout(() => {
+
+        mensaje.classList.add("visible");
+
+    }, 10);
+
+    setTimeout(() => {
+
+        mensaje.classList.remove("visible");
+
+        setTimeout(() => mensaje.remove(), 300);
+
+    }, 1800);
 
 }

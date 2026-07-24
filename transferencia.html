@@ -15,75 +15,95 @@
 
 <body>
 
-<div id="loader" class="loader">
+    <div id="loader" class="loader">
 
-    <div class="loader-card">
+        <div class="loader-card">
 
-        <div class="spinner"></div>
+            <div class="spinner"></div>
 
-        <p>Cargando datos...</p>
+            <p>Cargando datos...</p>
+
+        </div>
 
     </div>
 
-</div>
+    <main class="tarjeta">
 
-<main class="tarjeta">
+        <img id="foto">
 
-    <img id="foto">
+        <div class="contenido">
 
-    <div class="contenido">
+            <h1 id="titulo"></h1>
 
-        <h1 id="titulo"></h1>
+            <div class="instrucciones">
 
-        <div class="precio">
+                <h3>¿Cómo comprar?</h3>
 
-            <label>Importe</label>
+                <ol>
+                    <li>Copiá el Alias o el CVU.</li>
+                    <li>Realizá la transferencia por el importe indicado.</li>
+                    <li>Una vez finalizada, presioná <strong>"Ya realicé la transferencia"</strong>.</li>
+                </ol>
 
-            <h2 id="precio"></h2>
+            </div>
+
+            <div class="precio">
+
+                <label>Total a pagar</label>
+
+                <h2 id="precio"></h2>
+
+                <button id="copiarImporte" class="btn-secundario">
+                    Copiar importe
+                </button>
+
+            </div>
+
+            <div class="dato">
+
+                <label>Alias</label>
+
+                <div class="valor" id="alias"></div>
+
+                <button id="copiarAlias">
+                    Copiar Alias
+                </button>
+
+            </div>
+
+            <div class="dato">
+
+                <label>CVU / CBU</label>
+
+                <div class="valor" id="cbu"></div>
+
+                <button id="copiarCBU">
+                    Copiar CVU
+                </button>
+
+            </div>
+
+            <div class="dato">
+
+                <label>Titular</label>
+
+                <div class="valor" id="titular"></div>
+
+            </div>
+
+            <button id="btnConfirmar">
+
+                Ya realicé la transferencia
+
+            </button>
 
         </div>
 
-        <div class="dato">
+    </main>
 
-            <label>Alias</label>
-
-            <span id="alias"></span>
-
-            <button id="copiarAlias">Copiar Alias</button>
-
-        </div>
-
-        <div class="dato">
-
-            <label>CBU</label>
-
-            <span id="cbu"></span>
-
-            <button id="copiarCBU">Copiar CBU</button>
-
-        </div>
-
-        <div class="dato">
-
-            <label>Titular</label>
-
-            <span id="titular"></span>
-
-        </div>
-
-        <button id="btnConfirmar">
-
-            Ya realicé la transferencia
-
-        </button>
-
-    </div>
-
-</main>
-
-<script src="js/config.js"></script>
-<script src="js/api.js"></script>
-<script src="js/transferencia.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/transferencia.js"></script>
 
 </body>
 
