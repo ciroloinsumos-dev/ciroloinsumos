@@ -3,7 +3,7 @@ const API = {
     async crearOperacion(id, medio) {
 
     const url =
-        CONFIG.API +
+        CONFIG.API_URL +
         "?accion=crearOperacion" +
         "&id=" + encodeURIComponent(id) +
         "&medio=" + encodeURIComponent(medio);
@@ -18,7 +18,7 @@ const API = {
 
     const respuesta = await fetch(
 
-        CONFIG.API + "?accion=operacion&op=" + op
+        CONFIG.API_URL + "?accion=operacion&op=" + op
 
     );
 
@@ -30,14 +30,14 @@ const API = {
 
     const respuesta = await fetch(
 
-        CONFIG.API + "?accion=entregarOperacion&op=" + op
+        CONFIG.API_URL + "?accion=entregarOperacion&op=" + op
 
     );
 
     return await respuesta.json();
 
     },
-          
+
     async obtenerProductos() {
 
         try {
@@ -114,7 +114,7 @@ const API = {
 
     const respuesta = await fetch(
 
-        CONFIG.API + "?accion=operacionesPendientes"
+        CONFIG.API_URL + "?accion=operacionesPendientes"
 
     );
 
