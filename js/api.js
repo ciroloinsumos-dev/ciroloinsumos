@@ -14,6 +14,18 @@ const API = {
 
     },
 
+    async crearPreferencia(id) {
+
+    const respuesta = await fetch(
+        CONFIG.API_URL +
+        "?accion=crearPreferencia&id=" +
+        encodeURIComponent(id)
+    );
+
+    return await respuesta.json();
+
+    },
+
     async obtenerOperacion(op) {
 
         const respuesta = await fetch(

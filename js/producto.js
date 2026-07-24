@@ -102,17 +102,49 @@ async function iniciar() {
 
         }
 
-        // ==========================
-        // BOTÓN MERCADO PAGO
-        // ==========================
+ // ==========================
+// BOTÓN MERCADO PAGO
+// ==========================
 
-        const btnMP = document.getElementById("btnMP");
+const btnMP = document.getElementById("btnMP");
 
-        if (btnMP && taller.linkMP) {
+if (btnMP) {
 
-            btnMP.href = taller.linkMP;
+    btnMP.addEventListener("click", async (e) => {
+
+        e.preventDefault();
+
+        try {
+
+            btnMP.disabled = true;
+            btnMP.textContent = "Conectando con Mercado Pago...";
+
+            const pago = await API.crearPreferencia(id);
+
+            if (!pago.init_point) {
+
+                throw new Error("No fue posible crear el pago.");
+
+            }
+
+            window.location.href = pago.init_point;
 
         }
+
+        catch (error) {
+
+            console.error(error);
+
+            alert("No fue posible conectar con Mercado Pago.");
+
+            btnMP.disabled = false;
+            btnMP.textContent = "Mercado Pago";
+
+        }
+
+    });
+
+}
 
         // ==========================
         // BOTÓN TRANSFERENCIA
