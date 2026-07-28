@@ -50,13 +50,13 @@ alert("Producto recibido");
 
 alert(JSON.stringify(producto));
 
-        if (!producto || producto.error) {
+if (!producto || producto.error) {
 
-            ocultarLoader();
-            alert("Producto no encontrado.");
-            return;
+    ocultarLoader();
+    alert("Producto no encontrado.");
+    return;
 
-        }
+}
 
         // ==========================
         // TALLER
