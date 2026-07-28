@@ -20,7 +20,9 @@ async function iniciar() {
         // ==========================
 
         const inventario = await API.obtenerInventario(id);
-
+        console.log("Inventario:", inventario);
+        alert(JSON.stringify(inventario));
+        
         if (!inventario || inventario.error) {
 
             ocultarLoader();
