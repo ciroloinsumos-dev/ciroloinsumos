@@ -48,7 +48,7 @@ const producto = await API.obtenerProducto(inventario.codigoProducto);
 
 alert("Producto recibido");
 
-alert(JSON.stringify(producto));const producto = await API.obtenerProducto(inventario.codigoProducto);
+alert(JSON.stringify(producto));
 
         if (!producto || producto.error) {
 
