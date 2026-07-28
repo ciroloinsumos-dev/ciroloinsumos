@@ -42,7 +42,13 @@ async function iniciar() {
         // PRODUCTO
         // ==========================
 
-        const producto = await API.obtenerProducto(inventario.codigoProducto);
+        alert("Voy a buscar el producto");
+
+const producto = await API.obtenerProducto(inventario.codigoProducto);
+
+alert("Producto recibido");
+
+alert(JSON.stringify(producto));const producto = await API.obtenerProducto(inventario.codigoProducto);
 
         if (!producto || producto.error) {
 
@@ -56,8 +62,13 @@ async function iniciar() {
         // TALLER
         // ==========================
 
+alert("Voy a buscar el punto de venta");
+
 const puntoVenta = await API.obtenerPuntoVenta(inventario.codigoPuntoVenta);
 
+alert("Punto de venta recibido");
+
+alert(JSON.stringify(puntoVenta));
 if (!puntoVenta || puntoVenta.error) {
 
     ocultarLoader();
