@@ -20,16 +20,7 @@ async function iniciar() {
         // ==========================
 
         const inventario = await API.obtenerInventario(id);
-        console.log("Inventario:", inventario);
-        //alert(JSON.stringify(inventario));
 
-    alert("Producto:");
-    alert(JSON.stringify(producto));
-
-    const puntoVenta = await API.obtenerPuntoVenta(inventario.codigoPuntoVenta);
-    alert("Punto de Venta:");
-    alert(JSON.stringify(puntoVenta));
-        
         if (!inventario || inventario.error) {
 
             ocultarLoader();
@@ -38,61 +29,33 @@ async function iniciar() {
 
         }
 
-   // ==========================
-// PRODUCTO
-// ==========================
-
-alert("Voy a buscar el producto");
-
-const producto = await API.obtenerProducto(inventario.codigoProducto);
-
-alert("Producto recibido");
-
-alert(JSON.stringify(producto));
-
-if (!producto || producto.error) {
-
-    ocultarLoader();
-    alert("Producto no encontrado.");
-    return;
-
-}// ==========================
-// PRODUCTO
-// ==========================
-
-alert("Voy a buscar el producto");
-
-const producto = await API.obtenerProducto(inventario.codigoProducto);
-
-alert("Producto recibido");
-
-alert(JSON.stringify(producto));
-
-if (!producto || producto.error) {
-
-    ocultarLoader();
-    alert("Producto no encontrado.");
-    return;
-
-}
         // ==========================
-        // TALLER
+        // PRODUCTO
         // ==========================
 
-alert("Voy a buscar el punto de venta");
+        const producto = await API.obtenerProducto(inventario.codigoProducto);
 
-const puntoVenta = await API.obtenerPuntoVenta(inventario.codigoPuntoVenta);
+        if (!producto || producto.error) {
 
-alert("Punto de venta recibido");
+            ocultarLoader();
+            alert("Producto no encontrado.");
+            return;
 
-alert(JSON.stringify(puntoVenta));
-if (!puntoVenta || puntoVenta.error) {
+        }
 
-    ocultarLoader();
-    alert("Punto de venta no encontrado.");
-    return;
+        // ==========================
+        // PUNTO DE VENTA
+        // ==========================
 
-}
+        const puntoVenta = await API.obtenerPuntoVenta(inventario.codigoPuntoVenta);
+
+        if (!puntoVenta || puntoVenta.error) {
+
+            ocultarLoader();
+            alert("Punto de venta no encontrado.");
+            return;
+
+        }
 
         // ==========================
         // FOTO
@@ -120,14 +83,14 @@ if (!puntoVenta || puntoVenta.error) {
         document.getElementById("marca").textContent = producto.marca;
 
         // ==========================
-        // TALLER
+        // PUNTO DE VENTA
         // ==========================
 
         const nombrePuntoVenta = document.getElementById("taller");
 
-if (nombrePuntoVenta) {
-    nombrePuntoVenta.textContent = puntoVenta.nombre;
-}
+        if (nombrePuntoVenta) {
+            nombrePuntoVenta.textContent = puntoVenta.nombre;
+        }
 
         // ==========================
         // BOTÓN MERCADO PAGO
@@ -149,9 +112,7 @@ if (nombrePuntoVenta) {
                     const pago = await API.crearPreferencia(id);
 
                     if (!pago.init_point) {
-
                         throw new Error("No fue posible crear el pago.");
-
                     }
 
                     window.location.href = pago.init_point;
@@ -187,15 +148,7 @@ if (nombrePuntoVenta) {
 
         }
 
-        // ==========================
-        // OCULTAR LOADER
-        // ==========================
-
         ocultarLoader();
-
-        // ==========================
-        // DEBUG
-        // ==========================
 
         console.log("Inventario:", inventario);
         console.log("Producto:", producto);
@@ -212,8 +165,6 @@ if (nombrePuntoVenta) {
     }
 
 }
-
-//==================================
 
 function ocultarLoader() {
 
