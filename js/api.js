@@ -118,29 +118,29 @@ const API = {
 
     },
 
-    async obtenerTaller(codigo) {
+    async obtenerPuntoVenta(codigo) {
 
-        try {
+    try {
 
-            const respuesta = await fetch(
-                `${CONFIG.API_URL}?accion=taller&codigo=${encodeURIComponent(codigo)}`
-            );
+        const respuesta = await fetch(
+            `${CONFIG.API_URL}?accion=puntoVenta&codigo=${encodeURIComponent(codigo)}`
+        );
 
-            if (!respuesta.ok) {
-                throw new Error("Taller no encontrado.");
-            }
-
-            return await respuesta.json();
-
-        } catch (error) {
-
-            console.error(error);
-
-            return null;
-
+        if (!respuesta.ok) {
+            throw new Error("Punto de venta no encontrado.");
         }
 
-    },
+        return await respuesta.json();
+
+    } catch (error) {
+
+        console.error(error);
+
+        return null;
+
+    }
+
+},
 
     async obtenerConfiguracion() {
 
