@@ -19,7 +19,7 @@ async function iniciar(){
 
     document.getElementById("medio").textContent = datos.medio;
 
-    document.getElementById("taller").textContent = datos.taller;
+    document.getElementById("PuntodeVenta").textContent = datos.PuntodeVenta;
 
     document.getElementById("btnEntregar").onclick = async()=>{
 

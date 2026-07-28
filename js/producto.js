@@ -22,7 +22,7 @@ async function iniciar() {
         const inventario = await API.obtenerInventario(id);
         console.log("Inventario:", inventario);
         alert(JSON.stringify(inventario));
-        
+
         if (!inventario || inventario.error) {
 
             ocultarLoader();
@@ -88,7 +88,7 @@ if (!puntoVenta || puntoVenta.error) {
         // TALLER
         // ==========================
 
-        const nombrePuntoVenta = document.getElementById("taller");
+        const nombrePuntoVenta = document.getElementById("PuntodeVenta");
 
 if (nombrePuntoVenta) {
     nombrePuntoVenta.textContent = puntoVenta.nombre;
