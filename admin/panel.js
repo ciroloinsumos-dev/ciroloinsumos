@@ -16,7 +16,7 @@ async function iniciar(){
 
             <p><strong>Producto:</strong> ${op.tituloProducto}</p>
 
-            <p><strong>Taller:</strong> ${op.nombreTaller}</p>
+            <p><strong>Taller:</strong> ${op.nombrePuntoVenta}</p>
 
             <p><strong>Precio:</strong> $${op.precio}</p>
 

@@ -47,15 +47,15 @@ async function iniciar() {
         // TALLER
         // ==========================
 
-        const taller = await API.obtenerTaller(inventario.codigoTaller);
+const puntoVenta = await API.obtenerPuntoVenta(inventario.codigoPuntoVenta);
 
-        if (!taller || taller.error) {
+if (!puntoVenta || puntoVenta.error) {
 
-            ocultarLoader();
-            alert("Taller no encontrado.");
-            return;
+    ocultarLoader();
+    alert("Punto de venta no encontrado.");
+    return;
 
-        }
+}
 
         // ==========================
         // FOTO
@@ -86,13 +86,11 @@ async function iniciar() {
         // TALLER
         // ==========================
 
-        const nombreTaller = document.getElementById("taller");
+        const nombrePuntoVenta = document.getElementById("taller");
 
-        if (nombreTaller) {
-
-            nombreTaller.textContent = taller.nombre;
-
-        }
+if (nombrePuntoVenta) {
+    nombrePuntoVenta.textContent = puntoVenta.nombre;
+}
 
         // ==========================
         // BOTÓN MERCADO PAGO
@@ -164,7 +162,7 @@ async function iniciar() {
 
         console.log("Inventario:", inventario);
         console.log("Producto:", producto);
-        console.log("Taller:", taller);
+        console.log("Punto de Venta:", puntoVenta);
 
     } catch (error) {
 
