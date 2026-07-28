@@ -38,11 +38,29 @@ async function iniciar() {
 
         }
 
-        // ==========================
-        // PRODUCTO
-        // ==========================
+   // ==========================
+// PRODUCTO
+// ==========================
 
-        alert("Voy a buscar el producto");
+alert("Voy a buscar el producto");
+
+const producto = await API.obtenerProducto(inventario.codigoProducto);
+
+alert("Producto recibido");
+
+alert(JSON.stringify(producto));
+
+if (!producto || producto.error) {
+
+    ocultarLoader();
+    alert("Producto no encontrado.");
+    return;
+
+}// ==========================
+// PRODUCTO
+// ==========================
+
+alert("Voy a buscar el producto");
 
 const producto = await API.obtenerProducto(inventario.codigoProducto);
 
@@ -57,7 +75,6 @@ if (!producto || producto.error) {
     return;
 
 }
-
         // ==========================
         // TALLER
         // ==========================
