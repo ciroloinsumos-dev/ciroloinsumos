@@ -21,7 +21,14 @@ async function iniciar() {
 
         const inventario = await API.obtenerInventario(id);
         console.log("Inventario:", inventario);
-        alert(JSON.stringify(inventario));
+        //alert(JSON.stringify(inventario));
+        const producto = await API.obtenerProducto(inventario.codigoProducto);
+    alert("Producto:");
+    alert(JSON.stringify(producto));
+
+    const puntoVenta = await API.obtenerPuntoVenta(inventario.codigoPuntoVenta);
+    alert("Punto de Venta:");
+    alert(JSON.stringify(puntoVenta));
         
         if (!inventario || inventario.error) {
 
