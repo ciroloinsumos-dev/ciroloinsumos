@@ -76,15 +76,15 @@ async function iniciar() {
 
     }
 
-    catch (error) {
+catch (error) {
 
-        console.error(error);
+    console.error(error);
 
-        document.getElementById("loader").style.display = "none";
+    document.getElementById("loader").style.display = "none";
 
-        alert("Error al cargar los datos.");
+    alert(error.stack || error.message || error);
 
-    }
+}
 
 }
 
