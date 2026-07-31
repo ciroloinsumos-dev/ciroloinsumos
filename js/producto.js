@@ -93,8 +93,8 @@ async function iniciar() {
         }
 
         // ==========================
-// BOTÓN MERCADO PAGO
-// ==========================
+        // BOTÓN MERCADO PAGO
+        // ==========================
 
 const btnMP = document.getElementById("btnMP");
 
@@ -114,11 +114,11 @@ if (btnMP) {
             const urlPago = pago.sandbox_init_point || pago.init_point;
 
             if (!urlPago) {
-                throw new Error("No fue posible crear el pago.");
+                  throw new Error("No fue posible crear el pago.");
             }
 
-            window.location.href = urlPago;
-
+        window.location.href = urlPago;
+        
         } catch (error) {
 
             console.error(error);
