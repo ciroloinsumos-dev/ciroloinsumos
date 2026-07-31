@@ -93,44 +93,46 @@ async function iniciar() {
         }
 
         // ==========================
-        // BOTÓN MERCADO PAGO
-        // ==========================
+// BOTÓN MERCADO PAGO
+// ==========================
 
-        const btnMP = document.getElementById("btnMP");
+const btnMP = document.getElementById("btnMP");
 
-        if (btnMP) {
+if (btnMP) {
 
-            btnMP.addEventListener("click", async (e) => {
+    btnMP.addEventListener("click", async (e) => {
 
-                e.preventDefault();
+        e.preventDefault();
 
-                try {
+        try {
 
-                    btnMP.disabled = true;
-                    btnMP.textContent = "Conectando con Mercado Pago...";
+            btnMP.disabled = true;
+            btnMP.textContent = "Conectando con Mercado Pago...";
 
-                    const pago = await API.crearPreferencia(id);
+            const pago = await API.crearPreferencia(id);
 
-                    if (!pago.init_point) {
-                        throw new Error("No fue posible crear el pago.");
-                    }
+            const urlPago = pago.sandbox_init_point || pago.init_point;
 
-                    window.location.href = pago.init_point;
+            if (!urlPago) {
+                throw new Error("No fue posible crear el pago.");
+            }
 
-                } catch (error) {
+            window.location.href = urlPago;
 
-                    console.error(error);
+        } catch (error) {
 
-                    alert("No fue posible conectar con Mercado Pago.");
+            console.error(error);
 
-                    btnMP.disabled = false;
-                    btnMP.textContent = "Mercado Pago";
+            alert("No fue posible conectar con Mercado Pago.");
 
-                }
-
-            });
+            btnMP.disabled = false;
+            btnMP.textContent = "Mercado Pago";
 
         }
+
+    });
+
+}
 
         // ==========================
         // BOTÓN TRANSFERENCIA
