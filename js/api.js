@@ -174,7 +174,7 @@ const API = {
 
         return await respuesta.json();
 
-    }
+    },
 
     async obtenerOperacionPorPaymentId(paymentId) {
 
