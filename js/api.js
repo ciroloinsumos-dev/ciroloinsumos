@@ -176,4 +176,14 @@ const API = {
 
     }
 
+    async obtenerOperacionPorPaymentId(paymentId) {
+
+    const respuesta = await fetch(
+        `${CONFIG.API_URL}?accion=operacionPorPaymentId&payment_id=${encodeURIComponent(paymentId)}`
+    );
+
+    return await respuesta.json();
+
+    },
+
 };

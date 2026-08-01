@@ -1,14 +1,40 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", async () => {
 
-    const parametros=new URLSearchParams(location.search);
+    const parametros = new URLSearchParams(location.search);
 
-    const op=parametros.get("op");
+    let op = parametros.get("op");
 
-    document.getElementById("operacion").textContent=op;
+    // Si viene de Mercado Pago
+    if (!op) {
 
-    document.getElementById("btnInicio").onclick=()=>{
+        const paymentId = parametros.get("payment_id");
 
-        location.href="index.html";
+        if (paymentId) {
+
+            try {
+
+                const respuesta = await API.obtenerOperacionPorPaymentId(paymentId);
+
+                if (respuesta.ok) {
+                    op = respuesta.operacion;
+                }
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+        }
+
+    }
+
+    document.getElementById("operacion").textContent =
+        op || "Procesando...";
+
+    document.getElementById("btnInicio").onclick = () => {
+
+        location.href = "index.html";
 
     };
 
