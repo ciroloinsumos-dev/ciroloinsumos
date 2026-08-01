@@ -78,7 +78,7 @@ async function iniciar() {
         document.getElementById("descripcion").textContent = producto.descripcion;
         document.getElementById("categoria").textContent = producto.categoria;
         document.getElementById("precio").textContent =
-            CONFIG.MONEDA + " " + Number(producto.precio).toLocaleString("es-AR");
+        CONFIG.MONEDA + " " + Number(producto.precio).toLocaleString("es-AR");
         document.getElementById("peso").textContent = producto.peso;
         document.getElementById("marca").textContent = producto.marca;
 
@@ -86,7 +86,7 @@ async function iniciar() {
         // PUNTO DE VENTA
         // ==========================
 
-        const nombrePuntoVenta = document.getElementById("taller");
+        const nombrePuntoVenta = document.getElementById("puntoVenta");
 
         if (nombrePuntoVenta) {
             nombrePuntoVenta.textContent = puntoVenta.nombre;
@@ -96,13 +96,13 @@ async function iniciar() {
         // BOTÓN MERCADO PAGO
         // ==========================
 
-const btnMP = document.getElementById("btnMP");
+             const btnMP = document.getElementById("btnMP");
 
-if (btnMP) {
+                if (btnMP) {
 
-    btnMP.addEventListener("click", async (e) => {
+            btnMP.addEventListener("click", async (e) => {
 
-        e.preventDefault();
+            e.preventDefault();
 
         try {
 
