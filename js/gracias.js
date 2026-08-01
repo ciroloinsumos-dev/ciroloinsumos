@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 console.error(error);
 
+                alert(error);
+
             }
 
         }
