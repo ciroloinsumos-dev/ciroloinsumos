@@ -111,7 +111,7 @@ async function iniciar() {
 
             const pago = await API.crearPreferencia(id);
 
-            const urlPago = pago.sandbox_init_point || pago.init_point;
+            const urlPago = pago.init_point || pago.sandbox_init_point;
 
             if (!urlPago) {
                   throw new Error("No fue posible crear el pago.");
