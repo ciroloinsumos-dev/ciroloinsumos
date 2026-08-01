@@ -111,9 +111,9 @@ async function iniciar() {
 
             const pago = await API.crearPreferencia(id);
 
-console.log("Respuesta Mercado Pago:", pago);
+            console.log("Respuesta Mercado Pago:", pago);
 
-window.location.href = pago.init_point;
+            window.location.href = pago.init_point;
 
             if (!urlPago) {
                   throw new Error("No fue posible crear el pago.");
