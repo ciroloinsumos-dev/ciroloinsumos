@@ -16,13 +16,13 @@ const API = {
 
     async crearPreferencia(id) {
 
-    const respuesta = await fetch(
-        CONFIG.API_URL +
-        "?accion=crearPreferencia&id=" +
-        encodeURIComponent(id)
-    );
+        const respuesta = await fetch(
+            CONFIG.API_URL +
+            "?accion=crearPreferencia&id=" +
+            encodeURIComponent(id)
+        );
 
-    return await respuesta.json();
+        return await respuesta.json();
 
     },
 
@@ -80,6 +80,30 @@ const API = {
 
             if (!respuesta.ok) {
                 throw new Error("Producto no encontrado.");
+            }
+
+            return await respuesta.json();
+
+        } catch (error) {
+
+            console.error(error);
+
+            return null;
+
+        }
+
+    },
+
+    async obtenerQR(id) {
+
+        try {
+
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=qr&id=${encodeURIComponent(id)}`
+            );
+
+            if (!respuesta.ok) {
+                throw new Error("QR no encontrado.");
             }
 
             return await respuesta.json();

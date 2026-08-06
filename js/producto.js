@@ -16,10 +16,24 @@ async function iniciar() {
         }
 
         // ==========================
+        // QR
+        // ==========================
+
+        const qr = await API.obtenerQR(id);
+
+        if (!qr || qr.error) {
+
+            ocultarLoader();
+            alert("QR no encontrado.");
+            return;
+
+        }
+
+        // ==========================
         // INVENTARIO
         // ==========================
 
-        const inventario = await API.obtenerInventario(id);
+        const inventario = await API.obtenerInventario(qr.inventario);
 
         if (!inventario || inventario.error) {
 
@@ -33,7 +47,7 @@ async function iniciar() {
         // PRODUCTO
         // ==========================
 
-        const producto = await API.obtenerProducto(inventario.codigoProducto);
+        const producto = await API.obtenerProducto(qr.producto);
 
         if (!producto || producto.error) {
 
@@ -47,7 +61,7 @@ async function iniciar() {
         // TALLER
         // ==========================
 
-        const taller = await API.obtenerTaller(inventario.codigoTaller);
+        const taller = await API.obtenerTaller(qr.taller);
 
         if (!taller || taller.error) {
 
@@ -162,6 +176,7 @@ async function iniciar() {
         // DEBUG
         // ==========================
 
+        console.log("QR:", qr);
         console.log("Inventario:", inventario);
         console.log("Producto:", producto);
         console.log("Taller:", taller);
