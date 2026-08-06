@@ -1,5 +1,7 @@
 const API = {
-
+    
+    console.log("API VERSION 2");
+    
     async crearOperacion(id, medio) {
 
         const url =
