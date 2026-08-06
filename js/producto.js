@@ -43,10 +43,35 @@ if (!qr || qr.error) {
 
 }
 
-        // ==========================
-        // PRODUCTO
-        // ==========================
+const producto = await API.obtenerProducto(id);
 
+if (!producto || producto.error) {
+
+    ocultarLoader();
+    alert("Producto no encontrado.");
+    return;
+
+}
+
+const taller = await API.obtenerTaller(qr.taller);
+
+if (!taller || taller.error) {
+
+    ocultarLoader();
+    alert("Taller no encontrado.");
+    return;
+
+}
+
+const inventario = await API.obtenerInventario(qr.inventario);
+
+if (!inventario || inventario.error) {
+
+    ocultarLoader();
+    alert("Inventario no encontrado.");
+    return;
+
+}
 const producto = await API.obtenerProducto(qr.producto);
         if (!producto || producto.error) {
 
