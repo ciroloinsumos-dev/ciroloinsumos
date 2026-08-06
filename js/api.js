@@ -46,36 +46,36 @@ const API = {
 
     },
 
-   async obtenerProducto(id) {
-
-    try {
-
-        const respuesta = await fetch(
-            `${CONFIG.API_URL}?accion=producto&id=${encodeURIComponent(id)}`
-        );
-
-        if (!respuesta.ok) {
-            throw new Error("Producto no encontrado.");
-        }
-
-        return await respuesta.json();
-
-    } catch (error) {
-
-        console.error(error);
-
-        return null;
-
-    }
-
-},
-
-    async obtenerProducto(codigo) {
+    async obtenerProductos() {
 
         try {
 
             const respuesta = await fetch(
-                `${CONFIG.API_URL}?accion=producto&codigo=${encodeURIComponent(codigo)}`
+                `${CONFIG.API_URL}?accion=productos`
+            );
+
+            if (!respuesta.ok) {
+                throw new Error("No fue posible conectar con la API.");
+            }
+
+            return await respuesta.json();
+
+        } catch (error) {
+
+            console.error(error);
+
+            return [];
+
+        }
+
+    },
+
+    async obtenerProducto(id) {
+
+        try {
+
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=producto&id=${encodeURIComponent(id)}`
             );
 
             if (!respuesta.ok) {
@@ -142,29 +142,29 @@ const API = {
 
     },
 
-    async obtenerTaller(codigo) {
+    sync obtenerTaller(codigo) {
 
-        try {
+    try {
 
-            const respuesta = await fetch(
-                `${CONFIG.API_URL}?accion=taller&codigo=${encodeURIComponent(codigo)}`
-            );
+        const respuesta = await fetch(
+            `${CONFIG.API_URL}?accion=puntoVenta&codigo=${encodeURIComponent(codigo)}`
+        );
 
-            if (!respuesta.ok) {
-                throw new Error("Taller no encontrado.");
-            }
-
-            return await respuesta.json();
-
-        } catch (error) {
-
-            console.error(error);
-
-            return null;
-
+        if (!respuesta.ok) {
+            throw new Error("Taller no encontrado.");
         }
 
-    },
+        return await respuesta.json();
+
+    } catch (error) {
+
+        console.error(error);
+
+        return null;
+
+    }
+
+},
 
     async obtenerConfiguracion() {
 

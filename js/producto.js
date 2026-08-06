@@ -47,18 +47,10 @@ async function iniciar() {
         // PRODUCTO
         // ==========================
 
-        console.log("ID recibido:", id);
-
-        const producto = await API.obtenerProducto(qr.producto);
-
         const producto = await API.obtenerProducto(id);
 
-console.log("ID:", id);
-console.log("Producto:", producto);
-
-alert(JSON.stringify(producto));
-
-        console.log("Producto recibido:", producto);
+        console.log("ID:", id);
+        console.log("Producto:", producto);
 
         if (!producto || producto.error) {
 
@@ -177,15 +169,7 @@ alert(JSON.stringify(producto));
 
         }
 
-        // ==========================
-        // OCULTAR LOADER
-        // ==========================
-
         ocultarLoader();
-
-        // ==========================
-        // DEBUG
-        // ==========================
 
         console.log("QR:", qr);
         console.log("Inventario:", inventario);
