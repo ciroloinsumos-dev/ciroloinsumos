@@ -47,7 +47,13 @@ async function iniciar() {
         // PRODUCTO
         // ==========================
 
+        console.log("ID recibido:", id);
+
         const producto = await API.obtenerProducto(qr.producto);
+
+        const producto = await API.obtenerProducto(id);
+
+        console.log("Producto recibido:", producto);
 
         if (!producto || producto.error) {
 
