@@ -53,6 +53,11 @@ async function iniciar() {
 
         const producto = await API.obtenerProducto(id);
 
+console.log("ID:", id);
+console.log("Producto:", producto);
+
+alert(JSON.stringify(producto));
+
         console.log("Producto recibido:", producto);
 
         if (!producto || producto.error) {
