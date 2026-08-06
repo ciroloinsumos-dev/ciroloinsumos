@@ -1,6 +1,6 @@
 const API = {
     
-    console.log("API VERSION 2");
+    console.log("API VERSION 2026-08-06 18:30");
     
     async crearOperacion(id, medio) {
 
