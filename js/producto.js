@@ -47,7 +47,7 @@ async function iniciar() {
         // PRODUCTO
         // ==========================
 
-        const producto = await API.obtenerProducto(id);
+        const producto = await API.obtenerProducto(qr.producto);
 
         if (!producto || producto.error) {
 

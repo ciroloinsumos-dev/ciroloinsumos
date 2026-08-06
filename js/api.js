@@ -46,29 +46,29 @@ const API = {
 
     },
 
-    async obtenerProductos() {
+   async obtenerProducto(id) {
 
-        try {
+    try {
 
-            const respuesta = await fetch(
-                `${CONFIG.API_URL}?accion=productos`
-            );
+        const respuesta = await fetch(
+            `${CONFIG.API_URL}?accion=producto&id=${encodeURIComponent(id)}`
+        );
 
-            if (!respuesta.ok) {
-                throw new Error("No fue posible conectar con la API.");
-            }
-
-            return await respuesta.json();
-
-        } catch (error) {
-
-            console.error(error);
-
-            return [];
-
+        if (!respuesta.ok) {
+            throw new Error("Producto no encontrado.");
         }
 
-    },
+        return await respuesta.json();
+
+    } catch (error) {
+
+        console.error(error);
+
+        return null;
+
+    }
+
+},
 
     async obtenerProducto(codigo) {
 
