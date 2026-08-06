@@ -16,10 +16,24 @@ async function iniciar() {
         }
 
         // ==========================
+        // QR
+        // ==========================
+
+        const qr = await API.obtenerQR(id);
+
+        if (!qr || qr.error) {
+
+            ocultarLoader();
+            alert("QR no encontrado.");
+            return;
+
+        }
+
+        // ==========================
         // INVENTARIO
         // ==========================
 
-        const inventario = await API.obtenerInventario(id);
+        const inventario = await API.obtenerInventario(qr.inventario);
 
         if (!inventario || inventario.error) {
 
@@ -33,7 +47,7 @@ async function iniciar() {
         // PRODUCTO
         // ==========================
 
-        const producto = await API.obtenerProducto(inventario.codigoProducto);
+        const producto = await API.obtenerProducto(id);
 
         if (!producto || producto.error) {
 
@@ -47,7 +61,7 @@ async function iniciar() {
         // PUNTO DE VENTA
         // ==========================
 
-        const puntoVenta = await API.obtenerPuntoVenta(inventario.codigoPuntoVenta);
+        const puntoVenta = await API.obtenerPuntoVenta(qr.taller);
 
         if (!puntoVenta || puntoVenta.error) {
 
@@ -78,7 +92,7 @@ async function iniciar() {
         document.getElementById("descripcion").textContent = producto.descripcion;
         document.getElementById("categoria").textContent = producto.categoria;
         document.getElementById("precio").textContent =
-        CONFIG.MONEDA + " " + Number(producto.precio).toLocaleString("es-AR");
+            CONFIG.MONEDA + " " + Number(producto.precio).toLocaleString("es-AR");
         document.getElementById("peso").textContent = producto.peso;
         document.getElementById("marca").textContent = producto.marca;
 
@@ -89,50 +103,54 @@ async function iniciar() {
         const nombrePuntoVenta = document.getElementById("puntoVenta");
 
         if (nombrePuntoVenta) {
+
             nombrePuntoVenta.textContent = puntoVenta.nombre;
+
         }
 
         // ==========================
         // BOTÓN MERCADO PAGO
         // ==========================
 
-             const btnMP = document.getElementById("btnMP");
+        const btnMP = document.getElementById("btnMP");
 
-                if (btnMP) {
+        if (btnMP) {
 
             btnMP.addEventListener("click", async (e) => {
 
-            e.preventDefault();
+                e.preventDefault();
 
-        try {
+                try {
 
-            btnMP.disabled = true;
-            btnMP.textContent = "Conectando con Mercado Pago...";
+                    btnMP.disabled = true;
+                    btnMP.textContent = "Conectando con Mercado Pago...";
 
-            const pago = await API.crearPreferencia(id);
+                    const pago = await API.crearPreferencia(id);
 
-            const urlPago = pago.init_point || pago.sandbox_init_point;
+                    const urlPago = pago.init_point || pago.sandbox_init_point;
 
-            if (!urlPago) {
-                  throw new Error("No fue posible crear el pago.");
-            }
+                    if (!urlPago) {
 
-        window.location.href = urlPago;
-        
-        } catch (error) {
+                        throw new Error("No fue posible crear el pago.");
 
-            console.error(error);
+                    }
 
-            alert("No fue posible conectar con Mercado Pago.");
+                    window.location.href = urlPago;
 
-            btnMP.disabled = false;
-            btnMP.textContent = "Mercado Pago";
+                } catch (error) {
+
+                    console.error(error);
+
+                    alert("No fue posible conectar con Mercado Pago.");
+
+                    btnMP.disabled = false;
+                    btnMP.textContent = "Mercado Pago";
+
+                }
+
+            });
 
         }
-
-    });
-
-}
 
         // ==========================
         // BOTÓN TRANSFERENCIA
@@ -152,6 +170,7 @@ async function iniciar() {
 
         ocultarLoader();
 
+        console.log("QR:", qr);
         console.log("Inventario:", inventario);
         console.log("Producto:", producto);
         console.log("Punto de Venta:", puntoVenta);

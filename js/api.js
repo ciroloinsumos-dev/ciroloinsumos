@@ -16,13 +16,13 @@ const API = {
 
     async crearPreferencia(id) {
 
-    const respuesta = await fetch(
-        CONFIG.API_URL +
-        "?accion=crearPreferencia&id=" +
-        encodeURIComponent(id)
-    );
+        const respuesta = await fetch(
+            CONFIG.API_URL +
+            "?accion=crearPreferencia&id=" +
+            encodeURIComponent(id)
+        );
 
-    return await respuesta.json();
+        return await respuesta.json();
 
     },
 
@@ -70,12 +70,16 @@ const API = {
 
     },
 
-    async obtenerProducto(codigo) {
+    // ==========================================
+    // PRODUCTO (ahora recibe ID de Inventario/QR)
+    // ==========================================
+
+    async obtenerProducto(id) {
 
         try {
 
             const respuesta = await fetch(
-                `${CONFIG.API_URL}?accion=producto&codigo=${encodeURIComponent(codigo)}`
+                `${CONFIG.API_URL}?accion=producto&id=${encodeURIComponent(id)}`
             );
 
             if (!respuesta.ok) {
@@ -93,6 +97,34 @@ const API = {
         }
 
     },
+
+    // ==========================================
+
+    async obtenerQR(id) {
+
+        try {
+
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=qr&id=${encodeURIComponent(id)}`
+            );
+
+            if (!respuesta.ok) {
+                throw new Error("QR no encontrado.");
+            }
+
+            return await respuesta.json();
+
+        } catch (error) {
+
+            console.error(error);
+
+            return null;
+
+        }
+
+    },
+
+    // ==========================================
 
     async obtenerInventario(id) {
 
@@ -118,29 +150,33 @@ const API = {
 
     },
 
+    // ==========================================
+
     async obtenerPuntoVenta(codigo) {
 
-    try {
+        try {
 
-        const respuesta = await fetch(
-            `${CONFIG.API_URL}?accion=puntoVenta&codigo=${encodeURIComponent(codigo)}`
-        );
+            const respuesta = await fetch(
+                `${CONFIG.API_URL}?accion=puntoVenta&codigo=${encodeURIComponent(codigo)}`
+            );
 
-        if (!respuesta.ok) {
-            throw new Error("Punto de venta no encontrado.");
+            if (!respuesta.ok) {
+                throw new Error("Punto de venta no encontrado.");
+            }
+
+            return await respuesta.json();
+
+        } catch (error) {
+
+            console.error(error);
+
+            return null;
+
         }
 
-        return await respuesta.json();
+    },
 
-    } catch (error) {
-
-        console.error(error);
-
-        return null;
-
-    }
-
-},
+    // ==========================================
 
     async obtenerConfiguracion() {
 
@@ -166,6 +202,8 @@ const API = {
 
     },
 
+    // ==========================================
+
     async operacionesPendientes() {
 
         const respuesta = await fetch(
@@ -176,14 +214,16 @@ const API = {
 
     },
 
+    // ==========================================
+
     async obtenerOperacionPorPaymentId(paymentId) {
 
-    const respuesta = await fetch(
-        `${CONFIG.API_URL}?accion=operacionPorPaymentId&payment_id=${encodeURIComponent(paymentId)}`
-    );
+        const respuesta = await fetch(
+            `${CONFIG.API_URL}?accion=operacionPorPaymentId&payment_id=${encodeURIComponent(paymentId)}`
+        );
 
-    return await respuesta.json();
+        return await respuesta.json();
 
-    },
+    }
 
 };
