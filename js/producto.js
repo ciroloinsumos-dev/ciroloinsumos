@@ -29,26 +29,25 @@ async function iniciar() {
 
         }
 
-        // ==========================
-        // INVENTARIO
-        // ==========================
+// ==========================
+// QR
+// ==========================
 
-        const inventario = await API.obtenerInventario(qr.inventario);
+const qr = await API.obtenerQR(id);
 
-        if (!inventario || inventario.error) {
+if (!qr || qr.error) {
 
-            ocultarLoader();
-            alert("Inventario no encontrado.");
-            return;
+    ocultarLoader();
+    alert("QR no encontrado.");
+    return;
 
-        }
+}
 
         // ==========================
         // PRODUCTO
         // ==========================
 
-        const producto = await API.obtenerProducto(qr.producto);
-
+const producto = await API.obtenerProducto(qr.producto);
         if (!producto || producto.error) {
 
             ocultarLoader();
@@ -61,8 +60,7 @@ async function iniciar() {
         // TALLER
         // ==========================
 
-        const taller = await API.obtenerTaller(qr.taller);
-
+const taller = await API.obtenerTaller(qr.taller);
         if (!taller || taller.error) {
 
             ocultarLoader();
