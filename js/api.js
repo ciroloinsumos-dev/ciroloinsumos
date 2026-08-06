@@ -76,27 +76,27 @@ const API = {
 
     async obtenerProducto(id) {
 
-        try {
+    try {
 
-            const respuesta = await fetch(
-                `${CONFIG.API_URL}?accion=producto&id=${encodeURIComponent(id)}`
-            );
+        const respuesta = await fetch(
+            `${CONFIG.API_URL}?accion=producto&id=${encodeURIComponent(id)}`
+        );
 
-            if (!respuesta.ok) {
-                throw new Error("Producto no encontrado.");
-            }
-
-            return await respuesta.json();
-
-        } catch (error) {
-
-            console.error(error);
-
-            return null;
-
+        if (!respuesta.ok) {
+            throw new Error("Producto no encontrado.");
         }
 
-    },
+        return await respuesta.json();
+
+    } catch (error) {
+
+        console.error(error);
+
+        return null;
+
+    }
+
+},
 
     // ==========================================
 
