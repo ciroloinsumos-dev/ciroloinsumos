@@ -29,50 +29,26 @@ async function iniciar() {
 
         }
 
-// ==========================
-// QR
-// ==========================
+        // ==========================
+        // INVENTARIO
+        // ==========================
 
-const qr = await API.obtenerQR(id);
+        const inventario = await API.obtenerInventario(qr.inventario);
 
-if (!qr || qr.error) {
+        if (!inventario || inventario.error) {
 
-    ocultarLoader();
-    alert("QR no encontrado.");
-    return;
+            ocultarLoader();
+            alert("Inventario no encontrado.");
+            return;
 
-}
+        }
 
-const producto = await API.obtenerProducto(id);
+        // ==========================
+        // PRODUCTO
+        // ==========================
 
-if (!producto || producto.error) {
+        const producto = await API.obtenerProducto(id);
 
-    ocultarLoader();
-    alert("Producto no encontrado.");
-    return;
-
-}
-
-const taller = await API.obtenerTaller(qr.taller);
-
-if (!taller || taller.error) {
-
-    ocultarLoader();
-    alert("Taller no encontrado.");
-    return;
-
-}
-
-const inventario = await API.obtenerInventario(qr.inventario);
-
-if (!inventario || inventario.error) {
-
-    ocultarLoader();
-    alert("Inventario no encontrado.");
-    return;
-
-}
-const producto = await API.obtenerProducto(qr.producto);
         if (!producto || producto.error) {
 
             ocultarLoader();
@@ -85,7 +61,8 @@ const producto = await API.obtenerProducto(qr.producto);
         // TALLER
         // ==========================
 
-const taller = await API.obtenerTaller(qr.taller);
+        const taller = await API.obtenerTaller(qr.taller);
+
         if (!taller || taller.error) {
 
             ocultarLoader();
