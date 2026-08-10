@@ -47,8 +47,8 @@ async function iniciar() {
         // PRODUCTO
         // ==========================
 
-        const producto = await API.obtenerProducto(id);
-
+        const producto = await API.obtenerProducto(qr.inventario);          
+        
         if (!producto || producto.error) {
 
             ocultarLoader();
