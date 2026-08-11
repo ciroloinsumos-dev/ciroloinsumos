@@ -12,6 +12,10 @@ const inventario = await API.obtenerInventario(id);
 
 const producto = await API.obtenerProducto(id);
 
+console.log("ID:", id);
+console.log("INVENTARIO:", inventario);
+console.log("PRODUCTO:", producto);
+
 const configuracion = await API.obtenerConfiguracion();
 
         foto.src = producto.foto;
