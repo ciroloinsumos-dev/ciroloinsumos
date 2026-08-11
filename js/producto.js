@@ -1,5 +1,53 @@
 document.addEventListener("DOMContentLoaded", iniciar);
 
+// ==========================================================
+// LOADER
+// ==========================================================
+
+let intervaloLoader = null;
+
+function iniciarMensajesLoader() {
+
+    const mensajes = [
+        "Buscando información...",
+        "Cargando producto...",
+        "Cargando fotografía...",
+        "Cargando punto de venta...",
+        "Preparando medios de pago..."
+    ];
+
+    let posicion = 0;
+
+    const texto = document.getElementById("loaderTexto");
+
+    if (!texto) return;
+
+    texto.textContent = mensajes[0];
+
+    intervaloLoader = setInterval(() => {
+
+        posicion++;
+
+        if (posicion >= mensajes.length) {
+            posicion = 0;
+        }
+
+        texto.textContent = mensajes[posicion];
+
+    }, 2500);
+}
+
+function detenerMensajesLoader() {
+
+    if (intervaloLoader) {
+
+        clearInterval(intervaloLoader);
+
+        intervaloLoader = null;
+
+    }
+}
+
 function cambiarTextoLoader(texto) {
 
     const loaderTexto = document.getElementById("loaderTexto");
@@ -9,21 +57,28 @@ function cambiarTextoLoader(texto) {
         loaderTexto.textContent = texto;
 
     }
-
 }
 
+// ==========================================================
+// INICIAR
+// ==========================================================
+
 async function iniciar() {
+
+    iniciarMensajesLoader();
 
     try {
 
         const parametros = new URLSearchParams(window.location.search);
         const id = parametros.get("id");
-        cambiarTextoLoader("Buscando información...");
 
         if (!id) {
 
+            detenerMensajesLoader();
             ocultarLoader();
+
             alert("No se indicó un producto.");
+
             return;
 
         }
@@ -33,11 +88,14 @@ async function iniciar() {
         // ==========================
 
         const qr = await API.obtenerQR(id);
-        cambiarTextoLoader("Cargando producto...");
+
         if (!qr || qr.error) {
 
+            detenerMensajesLoader();
             ocultarLoader();
+
             alert("QR no encontrado.");
+
             return;
 
         }
@@ -47,11 +105,14 @@ async function iniciar() {
         // ==========================
 
         const inventario = await API.obtenerInventario(qr.inventario);
-        cambiarTextoLoader("Cargando fotografía...");
+
         if (!inventario || inventario.error) {
 
+            detenerMensajesLoader();
             ocultarLoader();
+
             alert("Inventario no encontrado.");
+
             return;
 
         }
@@ -60,12 +121,15 @@ async function iniciar() {
         // PRODUCTO
         // ==========================
 
-        const producto = await API.obtenerProducto(qr.inventario);          
-        cambiarTextoLoader("Cargando punto de venta...");
+        const producto = await API.obtenerProducto(qr.inventario);
+
         if (!producto || producto.error) {
 
+            detenerMensajesLoader();
             ocultarLoader();
+
             alert("Producto no encontrado.");
+
             return;
 
         }
@@ -75,11 +139,14 @@ async function iniciar() {
         // ==========================
 
         const puntoVenta = await API.obtenerPuntoVenta(qr.taller);
-        cambiarTextoLoader("Preparando medios de pago...");
+
         if (!puntoVenta || puntoVenta.error) {
 
+            detenerMensajesLoader();
             ocultarLoader();
+
             alert("Punto de venta no encontrado.");
+
             return;
 
         }
@@ -102,21 +169,34 @@ async function iniciar() {
         // ==========================
 
         document.getElementById("titulo").textContent = producto.titulo;
-        document.getElementById("descripcion").textContent = producto.descripcion;
-        document.getElementById("categoria").textContent = producto.categoria;
-        document.getElementById("precio").textContent = CONFIG.MONEDA + " " + Number(producto.precio).toLocaleString("es-AR");
-        document.getElementById("peso").textContent = producto.peso;
-        document.getElementById("marca").textContent = producto.marca;
+
+        document.getElementById("descripcion").textContent =
+            producto.descripcion;
+
+        document.getElementById("categoria").textContent =
+            producto.categoria;
+
+        document.getElementById("precio").textContent =
+            CONFIG.MONEDA + " " +
+            Number(producto.precio).toLocaleString("es-AR");
+
+        document.getElementById("peso").textContent =
+            producto.peso;
+
+        document.getElementById("marca").textContent =
+            producto.marca;
 
         // ==========================
         // PUNTO DE VENTA
         // ==========================
 
-        const nombrePuntoVenta = document.getElementById("puntoVenta");
+        const nombrePuntoVenta =
+            document.getElementById("puntoVenta");
 
         if (nombrePuntoVenta) {
 
-            nombrePuntoVenta.textContent = puntoVenta.nombre;
+            nombrePuntoVenta.textContent =
+                puntoVenta.nombre;
 
         }
 
@@ -124,7 +204,8 @@ async function iniciar() {
         // BOTÓN MERCADO PAGO
         // ==========================
 
-        const btnMP = document.getElementById("btnMP");
+        const btnMP =
+            document.getElementById("btnMP");
 
         if (btnMP) {
 
@@ -135,15 +216,22 @@ async function iniciar() {
                 try {
 
                     btnMP.disabled = true;
-                    btnMP.textContent = "Conectando con Mercado Pago...";
 
-                    const pago = await API.crearPreferencia(id);
+                    btnMP.textContent =
+                        "Conectando con Mercado Pago...";
 
-                    const urlPago = pago.init_point || pago.sandbox_init_point;
+                    const pago =
+                        await API.crearPreferencia(id);
+
+                    const urlPago =
+                        pago.init_point ||
+                        pago.sandbox_init_point;
 
                     if (!urlPago) {
 
-                        throw new Error("No fue posible crear el pago.");
+                        throw new Error(
+                            "No fue posible crear el pago."
+                        );
 
                     }
 
@@ -153,10 +241,14 @@ async function iniciar() {
 
                     console.error(error);
 
-                    alert("No fue posible conectar con Mercado Pago.");
+                    alert(
+                        "No fue posible conectar con Mercado Pago."
+                    );
 
                     btnMP.disabled = false;
-                    btnMP.textContent = "Mercado Pago";
+
+                    btnMP.textContent =
+                        "Mercado Pago";
 
                 }
 
@@ -168,19 +260,37 @@ async function iniciar() {
         // BOTÓN TRANSFERENCIA
         // ==========================
 
-        const btnTransferencia = document.getElementById("btnTransferencia");
+        const btnTransferencia =
+            document.getElementById("btnTransferencia");
 
         if (btnTransferencia) {
 
             btnTransferencia.addEventListener("click", () => {
 
-                window.location.href = `transferencia.html?id=${id}`;
+                window.location.href =
+                    `transferencia.html?id=${id}`;
 
             });
 
         }
 
-        ocultarLoader();
+        // ==========================
+        // FINALIZAR CARGA
+        // ==========================
+
+        detenerMensajesLoader();
+
+        cambiarTextoLoader("Producto listo");
+
+        setTimeout(() => {
+
+            ocultarLoader();
+
+        }, 300);
+
+        // ==========================
+        // CONSOLA
+        // ==========================
 
         console.log("QR:", qr);
         console.log("Inventario:", inventario);
@@ -191,17 +301,26 @@ async function iniciar() {
 
         console.error(error);
 
+        detenerMensajesLoader();
+
         ocultarLoader();
 
-        alert("Ocurrió un error al cargar el producto.");
+        alert(
+            "Ocurrió un error al cargar el producto."
+        );
 
     }
 
 }
 
+// ==========================================================
+// OCULTAR LOADER
+// ==========================================================
+
 function ocultarLoader() {
 
-    const loader = document.getElementById("loader");
+    const loader =
+        document.getElementById("loader");
 
     if (loader) {
 
