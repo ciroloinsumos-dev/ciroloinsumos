@@ -10,8 +10,8 @@ async function iniciar() {
 
         const inventario = await API.obtenerInventario(id);
 
-        const producto = await API.obtenerProducto(inventario.codigoProducto);
-
+        const producto = await API.obtenerProducto(id);
+        
         const configuracion = await API.obtenerConfiguracion();
 
         foto.src = producto.foto;
