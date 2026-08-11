@@ -4,15 +4,19 @@ async function iniciar() {
 
     try {
 
-        const parametros = new URLSearchParams(window.location.search);
+const parametros = new URLSearchParams(window.location.search);
 
-        const id = parametros.get("id");
+const id = parametros.get("id");
 
-        const inventario = await API.obtenerInventario(id);
+const inventario = await API.obtenerInventario(id);
 
-        const producto = await API.obtenerProducto(inventario.codigoProducto);
+const producto = await API.obtenerProducto(id);
 
-        const configuracion = await API.obtenerConfiguracion();
+console.log("ID:", id);
+console.log("INVENTARIO:", inventario);
+console.log("PRODUCTO:", producto);
+
+const configuracion = await API.obtenerConfiguracion();
 
         foto.src = producto.foto;
 
