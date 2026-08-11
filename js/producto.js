@@ -1,11 +1,24 @@
 document.addEventListener("DOMContentLoaded", iniciar);
 
+function cambiarTextoLoader(texto) {
+
+    const loaderTexto = document.getElementById("loaderTexto");
+
+    if (loaderTexto) {
+
+        loaderTexto.textContent = texto;
+
+    }
+
+}
+
 async function iniciar() {
 
     try {
 
         const parametros = new URLSearchParams(window.location.search);
         const id = parametros.get("id");
+        cambiarTextoLoader("Buscando información...");
 
         if (!id) {
 
@@ -20,7 +33,7 @@ async function iniciar() {
         // ==========================
 
         const qr = await API.obtenerQR(id);
-
+        cambiarTextoLoader("Cargando producto...");
         if (!qr || qr.error) {
 
             ocultarLoader();
@@ -34,7 +47,7 @@ async function iniciar() {
         // ==========================
 
         const inventario = await API.obtenerInventario(qr.inventario);
-
+        cambiarTextoLoader("Cargando fotografía...");
         if (!inventario || inventario.error) {
 
             ocultarLoader();
@@ -48,7 +61,7 @@ async function iniciar() {
         // ==========================
 
         const producto = await API.obtenerProducto(qr.inventario);          
-        
+        cambiarTextoLoader("Cargando punto de venta...");
         if (!producto || producto.error) {
 
             ocultarLoader();
@@ -62,7 +75,7 @@ async function iniciar() {
         // ==========================
 
         const puntoVenta = await API.obtenerPuntoVenta(qr.taller);
-
+        cambiarTextoLoader("Preparando medios de pago...");
         if (!puntoVenta || puntoVenta.error) {
 
             ocultarLoader();
