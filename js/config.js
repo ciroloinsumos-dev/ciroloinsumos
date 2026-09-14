@@ -6,8 +6,8 @@
 
 const CONFIG = {
 
-    API_URL: "https://script.google.com/macros/s/AKfycbwU2Z3rQZ4WbxGoqAFV-w6Z7mz0_2lUWAJV47qdPzgdcaxAdVUJOG6bv3mrRUWlPlAe2A/exec",
-
+    API_URL: "https://script.google.com/macros/s/AKfycby8N5iUjBTzfBkPn9F6b1L71UbTX7TA-9r2R7wm5KChrm5NXMgj52SgeCDt3RBCav6COw/exec"
+    
     MONEDA: "$",
 
     DECIMALES: 0
