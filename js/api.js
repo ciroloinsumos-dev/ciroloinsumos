@@ -1,19 +1,19 @@
 const API = {
 
-    async crearOperacion(id, medio) {
+    async crearOperacion(id, medio, coordinador) {
 
-        const url =
-            CONFIG.API_URL +
-            "?accion=crearOperacion" +
-            "&id=" + encodeURIComponent(id) +
-            "&medio=" + encodeURIComponent(medio);
+    const url =
+        CONFIG.API_URL +
+        "?accion=crearOperacion" +
+        "&id=" + encodeURIComponent(id) +
+        "&medio=" + encodeURIComponent(medio) +
+        "&coordinador=" + encodeURIComponent(coordinador);
 
-        const respuesta = await fetch(url);
+    const respuesta = await fetch(url);
 
-        return await respuesta.json();
+    return await respuesta.json();
 
-    },
-
+},
     async crearPreferencia(id) {
 
         const respuesta = await fetch(

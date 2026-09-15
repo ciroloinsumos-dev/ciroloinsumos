@@ -7,6 +7,7 @@ async function iniciar() {
 const parametros = new URLSearchParams(window.location.search);
 
 const id = parametros.get("id");
+const coordinador = parametros.get("coordinador");
 
 const inventario = await API.obtenerInventario(id);
 
@@ -46,8 +47,11 @@ const configuracion = await API.obtenerConfiguracion();
 
             try {
 
-                const respuesta = await API.crearOperacion(id, "TRANSFERENCIA");
-
+            const respuesta = await API.crearOperacion(
+                    id,
+                    "TRANSFERENCIA",
+                    coordinador
+                );
                 if (!respuesta.ok) {
 
                     alert(respuesta.mensaje || "No se pudo registrar la operación.");

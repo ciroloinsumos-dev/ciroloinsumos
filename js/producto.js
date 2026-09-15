@@ -280,8 +280,18 @@ async function iniciar() {
 
             btnTransferencia.addEventListener("click", () => {
 
+               const coordinador = document.getElementById("coordinador").value;
+
+                if (!coordinador) {
+
+                    alert("Seleccioná un coordinador.");
+
+                    return;
+
+                }
+
                 window.location.href =
-                    `transferencia.html?id=${id}`;
+                    `transferencia.html?id=${id}&coordinador=${encodeURIComponent(coordinador)}`;
 
             });
 
