@@ -26,16 +26,12 @@
 ========================================================= */
 
 * {
-
     box-sizing: border-box;
-
 }
 
 
 html {
-
     min-height: 100%;
-
 }
 
 
@@ -59,7 +55,6 @@ body {
         Arial,
         Helvetica,
         sans-serif;
-
 }
 
 
@@ -74,7 +69,6 @@ body {
     border-bottom: 1px solid var(--borde);
 
     background: rgba(9, 9, 9, .96);
-
 }
 
 
@@ -82,7 +76,7 @@ body {
 
     width: min(1100px, calc(100% - 32px));
 
-    min-height: 76px;
+    min-height: 68px;
 
     margin: auto;
 
@@ -91,18 +85,16 @@ body {
     align-items: center;
 
     justify-content: space-between;
-
 }
 
 
 .logo-travel-rock {
 
-    width: 120px;
+    width: 105px;
 
-    height: 58px;
+    height: 52px;
 
     object-fit: contain;
-
 }
 
 
@@ -115,23 +107,24 @@ body {
     font-weight: bold;
 
     letter-spacing: 2px;
-
 }
 
 
 /* =========================================================
-   CONTENEDOR PRINCIPAL
+   PRODUCTO
 ========================================================= */
 
 .producto {
 
     width: min(1100px, calc(100% - 32px));
 
-    margin: 28px auto 55px;
+    margin: 22px auto 50px;
 
     display: grid;
 
-    grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(360px, .85fr);
 
     background: var(--negro-2);
 
@@ -143,7 +136,6 @@ body {
 
     box-shadow:
         0 25px 70px rgba(0, 0, 0, .45);
-
 }
 
 
@@ -155,9 +147,9 @@ body {
 
     position: relative;
 
-    min-height: 650px;
+    min-height: 620px;
 
-    padding: 38px;
+    padding: 25px;
 
     display: flex;
 
@@ -168,7 +160,6 @@ body {
     background: var(--blanco);
 
     border-right: 1px solid var(--borde);
-
 }
 
 
@@ -187,7 +178,6 @@ body {
     justify-content: center;
 
     background: var(--blanco);
-
 }
 
 
@@ -202,7 +192,6 @@ body {
     object-fit: contain;
 
     display: block;
-
 }
 
 
@@ -229,7 +218,6 @@ body {
     letter-spacing: 1.5px;
 
     border-radius: 4px;
-
 }
 
 
@@ -239,20 +227,19 @@ body {
 
 .contenido {
 
-    padding: 48px 42px 35px;
+    padding: 42px 40px 30px;
 
     display: flex;
 
     flex-direction: column;
 
     justify-content: center;
-
 }
 
 
 .marca-superior {
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
     color: var(--naranja);
 
@@ -262,16 +249,17 @@ body {
 
     letter-spacing: 2px;
 
+    text-align: center;
 }
 
 
 h1 {
 
-    margin: 0 0 10px;
+    margin: 0 0 8px;
 
     color: var(--blanco);
 
-    font-size: 34px;
+    font-size: 33px;
 
     line-height: 1.08;
 
@@ -279,8 +267,13 @@ h1 {
 
     text-transform: uppercase;
 
+    text-align: center;
 }
 
+
+/* =========================================================
+   PRECIO
+========================================================= */
 
 #precio {
 
@@ -288,27 +281,27 @@ h1 {
 
     color: var(--naranja);
 
-    font-size: 48px;
+    font-size: 54px;
 
     line-height: 1;
 
     font-weight: 900;
 
-    text-align: left;
-
+    text-align: center;
 }
 
 
 #descripcion {
 
-    margin: 0 0 25px;
+    margin: 0 0 24px;
 
     color: var(--gris);
 
-    font-size: 15px;
+    font-size: 14px;
 
     line-height: 1.5;
 
+    text-align: center;
 }
 
 
@@ -318,10 +311,9 @@ h1 {
 
 .datos {
 
-    margin-bottom: 25px;
+    margin-bottom: 23px;
 
     border-top: 1px solid var(--borde);
-
 }
 
 
@@ -329,7 +321,7 @@ h1 {
 
     margin: 0;
 
-    padding: 11px 0;
+    padding: 10px 0;
 
     display: flex;
 
@@ -342,7 +334,6 @@ h1 {
     border-bottom: 1px solid var(--borde);
 
     font-size: 12px;
-
 }
 
 
@@ -355,7 +346,6 @@ h1 {
     font-weight: bold;
 
     white-space: nowrap;
-
 }
 
 
@@ -364,7 +354,6 @@ h1 {
     color: var(--blanco);
 
     text-align: right;
-
 }
 
 
@@ -377,7 +366,6 @@ h1 {
     color: var(--naranja);
 
     font-size: 9px;
-
 }
 
 
@@ -387,8 +375,7 @@ h1 {
 
 .coordinador-box {
 
-    margin-bottom: 25px;
-
+    margin-bottom: 23px;
 }
 
 
@@ -405,14 +392,12 @@ h1 {
     font-weight: bold;
 
     letter-spacing: 1.5px;
-
 }
 
 
 .select-wrap {
 
     position: relative;
-
 }
 
 
@@ -433,7 +418,6 @@ h1 {
     font-size: 9px;
 
     pointer-events: none;
-
 }
 
 
@@ -443,7 +427,8 @@ h1 {
 
     min-height: 50px;
 
-    padding: 0 42px 0 34px;
+    padding:
+        0 42px 0 34px;
 
     appearance: none;
 
@@ -462,14 +447,12 @@ h1 {
     font-size: 14px;
 
     cursor: pointer;
-
 }
 
 
 #coordinador:focus {
 
     border-color: var(--naranja);
-
 }
 
 
@@ -488,20 +471,12 @@ h1 {
     font-size: 20px;
 
     pointer-events: none;
-
 }
 
 
 /* =========================================================
    FORMAS DE PAGO
 ========================================================= */
-
-.formasPago {
-
-    margin-top: 2px;
-
-}
-
 
 .titulo-pago {
 
@@ -515,6 +490,7 @@ h1 {
 
     letter-spacing: 1.5px;
 
+    text-align: center;
 }
 
 
@@ -525,14 +501,13 @@ h1 {
     grid-template-columns: 1fr 1fr;
 
     gap: 9px;
-
 }
 
 
 .botones button,
 .botones a {
 
-    min-height: 52px;
+    min-height: 50px;
 
     padding: 12px 10px;
 
@@ -557,7 +532,6 @@ h1 {
     cursor: pointer;
 
     transition: .2s ease;
-
 }
 
 
@@ -568,7 +542,6 @@ h1 {
     background: var(--naranja);
 
     color: var(--blanco);
-
 }
 
 
@@ -577,7 +550,6 @@ h1 {
     background: var(--naranja-hover);
 
     transform: translateY(-1px);
-
 }
 
 
@@ -588,7 +560,6 @@ h1 {
     background: transparent;
 
     color: var(--blanco);
-
 }
 
 
@@ -599,7 +570,6 @@ h1 {
     color: var(--naranja);
 
     transform: translateY(-1px);
-
 }
 
 
@@ -608,17 +578,16 @@ h1 {
     font-size: 18px;
 
     line-height: 1;
-
 }
 
 
 /* =========================================================
-   FRASE FINAL
+   FRASE
 ========================================================= */
 
 .footer-frase {
 
-    margin-top: 28px;
+    margin-top: 24px;
 
     color: var(--gris-2);
 
@@ -627,14 +596,12 @@ h1 {
     letter-spacing: 2px;
 
     text-align: center;
-
 }
 
 
 .footer-frase strong {
 
     color: var(--naranja);
-
 }
 
 
@@ -657,7 +624,6 @@ h1 {
     justify-content: center;
 
     background: rgba(9, 9, 9, .97);
-
 }
 
 
@@ -677,7 +643,6 @@ h1 {
 
     box-shadow:
         0 20px 50px rgba(0, 0, 0, .5);
-
 }
 
 
@@ -688,7 +653,6 @@ h1 {
     color: var(--gris);
 
     font-size: 13px;
-
 }
 
 
@@ -707,16 +671,13 @@ h1 {
     border-radius: 50%;
 
     animation: girar 1s linear infinite;
-
 }
 
 
 @keyframes girar {
 
     to {
-
         transform: rotate(360deg);
-
     }
 
 }
@@ -753,6 +714,13 @@ h1 {
     }
 
 
+    #foto {
+
+        max-height: 440px;
+
+    }
+
+
     .contenido {
 
         padding: 35px;
@@ -772,16 +740,16 @@ h1 {
 
         width: calc(100% - 24px);
 
-        min-height: 68px;
+        min-height: 64px;
 
     }
 
 
     .logo-travel-rock {
 
-        width: 105px;
+        width: 95px;
 
-        height: 52px;
+        height: 48px;
 
     }
 
@@ -799,7 +767,7 @@ h1 {
 
         width: calc(100% - 20px);
 
-        margin: 12px auto 30px;
+        margin: 10px auto 30px;
 
         border-radius: 16px;
 
@@ -810,30 +778,30 @@ h1 {
 
         min-height: 350px;
 
-        padding: 18px;
+        padding: 12px;
 
     }
 
 
     .foto-marco {
 
-        min-height: 310px;
+        min-height: 325px;
 
     }
 
 
     #foto {
 
-        max-height: 310px;
+        max-height: 325px;
 
     }
 
 
     .etiqueta-producto {
 
-        top: 12px;
+        top: 10px;
 
-        left: 12px;
+        left: 10px;
 
         padding: 8px 10px;
 
@@ -851,18 +819,14 @@ h1 {
 
     .marca-superior {
 
-        margin-bottom: 9px;
+        margin-bottom: 8px;
 
         font-size: 10px;
-
-        letter-spacing: 1.7px;
 
     }
 
 
     h1 {
-
-        margin-bottom: 9px;
 
         font-size: 25px;
 
@@ -871,11 +835,9 @@ h1 {
 
     #precio {
 
-        margin-bottom: 16px;
+        margin-bottom: 15px;
 
-        font-size: 40px;
-
-        text-align: left;
+        font-size: 43px;
 
     }
 
@@ -899,15 +861,6 @@ h1 {
     .datos p {
 
         padding: 10px 0;
-
-        font-size: 11px;
-
-    }
-
-
-    .datos strong {
-
-        font-size: 10px;
 
     }
 
@@ -976,14 +929,14 @@ h1 {
 
     .foto-marco {
 
-        min-height: 280px;
+        min-height: 295px;
 
     }
 
 
     #foto {
 
-        max-height: 280px;
+        max-height: 295px;
 
     }
 
@@ -1004,7 +957,7 @@ h1 {
 
     #precio {
 
-        font-size: 36px;
+        font-size: 38px;
 
     }
 
