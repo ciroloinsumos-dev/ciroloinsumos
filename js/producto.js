@@ -180,12 +180,30 @@ async function iniciar() {
             CONFIG.MONEDA + " " +
             Number(producto.precio).toLocaleString("es-AR");
 
-        document.getElementById("peso").textContent =
-            producto.peso;
-
         document.getElementById("marca").textContent =
             producto.marca;
 
+            // ==========================
+            // COORDINADOR
+            // ==========================
+
+            const selectorCoordinador =
+                document.getElementById("coordinador");
+
+            if (selectorCoordinador && puntoVenta.coordinadores) {
+
+                puntoVenta.coordinadores.forEach(coordinador => {
+
+                    const opcion = document.createElement("option");
+
+                    opcion.value = coordinador;
+                    opcion.textContent = coordinador;
+
+                    selectorCoordinador.appendChild(opcion);
+
+                });
+
+            }
         // ==========================
         // PUNTO DE VENTA
         // ==========================
