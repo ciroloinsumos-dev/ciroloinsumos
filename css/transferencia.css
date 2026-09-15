@@ -1,277 +1,474 @@
-body{
+/* =========================================
+   TRAVEL ROCK · TRANSFERENCIA
+========================================= */
 
-    margin:0;
-    padding:20px;
-    background:#f2f2f2;
-    font-family:Arial, Helvetica, sans-serif;
+body {
 
-}
+    margin: 0;
+    padding: 30px 20px;
 
-.tarjeta{
+    background:
+        radial-gradient(
+            circle at top,
+            #242424 0%,
+            #111111 45%,
+            #050505 100%
+        );
 
-    max-width:420px;
-    margin:auto;
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 12px 30px rgba(0,0,0,.12);
+    font-family: Arial, Helvetica, sans-serif;
 
-}
-
-#foto{
-
-    width:100%;
-    height:240px;
-    object-fit:contain;
-    background:white;
-    border-bottom:1px solid #eee;
+    color: white;
 
 }
 
-.contenido{
 
-    padding:24px;
+/* =========================================
+   TARJETA PRINCIPAL
+========================================= */
 
-}
+.tarjeta {
 
-h1{
+    max-width: 420px;
 
-    margin:0 0 20px;
-    text-align:center;
-    font-size:24px;
-    color:#2d2d2d;
+    margin: auto;
 
-}
+    background: #111111;
 
-/* ============================
-   Instrucciones
-============================ */
+    border-radius: 22px;
 
-.instrucciones{
+    overflow: hidden;
 
-    background:#FFF8E6;
-    border:1px solid #F1D38A;
-    border-radius:12px;
-    padding:16px;
-    margin-bottom:25px;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.45);
 
 }
 
-.instrucciones h3{
 
-    margin:0 0 10px;
-    color:#7a5b00;
-    font-size:16px;
+/* =========================================
+   FOTO
+========================================= */
 
-}
+#foto {
 
-.instrucciones ol{
+    display: block;
 
-    margin:0;
-    padding-left:18px;
-    color:#555;
-    line-height:1.6;
+    width: 100%;
 
-}
+    height: 260px;
 
-/* ============================
-   Importe
-============================ */
+    object-fit: contain;
 
-.precio{
+    background: #ffffff;
 
-    background:#F4FBF7;
-    border:2px solid #2d6a5b;
-    border-radius:14px;
-    padding:18px;
-    text-align:center;
-    margin-bottom:25px;
+    border-bottom: 1px solid #eeeeee;
 
 }
 
-.precio label{
 
-    display:block;
-    color:#777;
-    font-size:13px;
-    margin-bottom:6px;
+/* =========================================
+   CONTENIDO
+========================================= */
 
-}
+.contenido {
 
-#precio{
-
-    margin:0 0 15px;
-    color:#1d7c48;
-    font-size:34px;
-    font-weight:bold;
+    padding: 28px;
 
 }
 
-/* ============================
-   Datos bancarios
-============================ */
 
-.dato{
+/* =========================================
+   TITULO
+========================================= */
 
-    margin-bottom:22px;
+h1 {
 
-}
+    margin: 0 0 24px;
 
-.dato label{
+    text-align: center;
 
-    display:block;
-    font-size:13px;
-    color:#666;
-    margin-bottom:6px;
+    font-size: 25px;
 
-}
+    font-weight: 800;
 
-.valor{
-
-    background:#f8f8f8;
-    border:1px solid #ddd;
-    border-radius:10px;
-    padding:12px;
-    margin-bottom:10px;
-    font-family:monospace;
-    font-size:16px;
-    word-break:break-all;
+    color: #ffffff;
 
 }
 
-/* ============================
-   Botones
-============================ */
 
-button{
+/* =========================================
+   INSTRUCCIONES
+========================================= */
 
-    transition:.2s;
+.instrucciones {
+
+    background: #1c1c1c;
+
+    border: 1px solid #333333;
+
+    border-left: 4px solid #f58220;
+
+    border-radius: 12px;
+
+    padding: 17px;
+
+    margin-bottom: 25px;
 
 }
 
-button:hover{
 
-    transform:translateY(-1px);
+.instrucciones h3 {
+
+    margin: 0 0 10px;
+
+    color: #f58220;
+
+    font-size: 16px;
 
 }
 
-button:active{
 
-    transform:scale(.98);
+.instrucciones ol {
+
+    margin: 0;
+
+    padding-left: 18px;
+
+    color: #dddddd;
+
+    line-height: 1.6;
 
 }
+
+
+.instrucciones li {
+
+    margin-bottom: 4px;
+
+}
+
+
+/* =========================================
+   IMPORTE
+========================================= */
+
+.precio {
+
+    background: #181818;
+
+    border: 2px solid #f58220;
+
+    border-radius: 14px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    margin-bottom: 28px;
+
+}
+
+
+.precio label {
+
+    display: block;
+
+    color: #aaaaaa;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: .5px;
+
+    margin-bottom: 7px;
+
+}
+
+
+#precio {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+}
+
+
+/* =========================================
+   DATOS BANCARIOS
+========================================= */
+
+.dato {
+
+    margin-bottom: 22px;
+
+}
+
+
+.dato label {
+
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #aaaaaa;
+
+    margin-bottom: 7px;
+
+}
+
+
+.valor {
+
+    background: #1c1c1c;
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 10px;
+
+    padding: 13px;
+
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    font-family: monospace;
+
+    font-size: 16px;
+
+    word-break: break-all;
+
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+button {
+
+    transition: .2s;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-1px);
+
+}
+
+
+button:active {
+
+    transform: scale(.98);
+
+}
+
 
 .dato button,
-.btn-secundario{
+.btn-secundario {
 
-    width:100%;
-    padding:13px;
-    border:none;
-    border-radius:10px;
-    background:#ececec;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:bold;
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #303030;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
 
 }
+
 
 .dato button:hover,
-.btn-secundario:hover{
+.btn-secundario:hover {
 
-    background:#dddddd;
-
-}
-
-#btnConfirmar{
-
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:12px;
-    background:#2d6a5b;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    margin-top:30px;
+    background: #3d3d3d;
 
 }
 
-#btnConfirmar:hover{
 
-    background:#25584c;
+/* =========================================
+   CONFIRMAR TRANSFERENCIA
+========================================= */
 
-}
+#btnConfirmar {
 
-/* ============================
-   Loader
-============================ */
+    width: 100%;
 
-.loader{
+    padding: 17px;
 
-    position:fixed;
-    inset:0;
-    background:rgba(255,255,255,.9);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:999;
+    border: none;
 
-}
+    border-radius: 12px;
 
-.loader-card{
+    background: #f58220;
 
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    color: #ffffff;
 
-}
+    font-size: 17px;
 
-.spinner{
+    font-weight: 800;
 
-    width:45px;
-    height:45px;
-    border:5px solid #ddd;
-    border-top:5px solid #2d6a5b;
-    border-radius:50%;
-    animation:girar 1s linear infinite;
-    margin:auto;
+    cursor: pointer;
+
+    margin-top: 30px;
+
+    box-shadow:
+        0 8px 20px rgba(245,130,32,.22);
 
 }
 
-@keyframes girar{
 
-    to{
+#btnConfirmar:hover {
 
-        transform:rotate(360deg);
+    background: #ff922f;
+
+}
+
+
+#btnConfirmar:disabled {
+
+    opacity: .6;
+
+    cursor: wait;
+
+    transform: none;
+
+}
+
+
+/* =========================================
+   LOADER
+========================================= */
+
+.loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.92);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 999;
+
+}
+
+
+.loader-card {
+
+    background: #181818;
+
+    color: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.5);
+
+}
+
+
+.spinner {
+
+    width: 45px;
+
+    height: 45px;
+
+    border: 5px solid #333333;
+
+    border-top: 5px solid #f58220;
+
+    border-radius: 50%;
+
+    animation: girar 1s linear infinite;
+
+    margin: auto;
+
+}
+
+
+@keyframes girar {
+
+    to {
+
+        transform: rotate(360deg);
 
     }
 
 }
 
-/* ============================
-   Responsive
-============================ */
 
-@media(max-width:480px){
+/* =========================================
+   RESPONSIVE
+========================================= */
 
-    body{
+@media(max-width:480px) {
 
-        padding:12px;
+    body {
 
-    }
-
-    .contenido{
-
-        padding:20px;
+        padding: 15px 10px;
 
     }
 
-    #precio{
 
-        font-size:30px;
+    .tarjeta {
+
+        border-radius: 18px;
+
+    }
+
+
+    #foto {
+
+        height: 230px;
+
+    }
+
+
+    .contenido {
+
+        padding: 21px;
+
+    }
+
+
+    h1 {
+
+        font-size: 22px;
+
+    }
+
+
+    #precio {
+
+        font-size: 32px;
 
     }
 
