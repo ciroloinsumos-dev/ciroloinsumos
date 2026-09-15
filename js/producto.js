@@ -168,12 +168,7 @@ async function iniciar() {
         // DATOS DEL PRODUCTO
         // ==========================
 
-        document.getElementById("titulo").textContent = producto.titulo;
-
-        document.getElementById("descripcion").textContent =
-            producto.descripcion;
-
-        document.getElementById("categoria").textContent =
+                document.getElementById("categoria").textContent =
             producto.categoria;
 
         document.getElementById("precio").textContent =
@@ -183,27 +178,27 @@ async function iniciar() {
         document.getElementById("marca").textContent =
             producto.marca;
 
-            // ==========================
-            // COORDINADOR
-            // ==========================
+        // ==========================
+        // COORDINADOR
+        // ==========================
 
-            const selectorCoordinador =
-                document.getElementById("coordinador");
+        const selectorCoordinador =
+            document.getElementById("coordinador");
 
-            if (selectorCoordinador && puntoVenta.coordinadores) {
+        if (selectorCoordinador && puntoVenta.coordinadores) {
 
-                puntoVenta.coordinadores.forEach(coordinador => {
+            puntoVenta.coordinadores.forEach(coordinador => {
 
-                    const opcion = document.createElement("option");
+                const opcion = document.createElement("option");
 
-                    opcion.value = coordinador;
-                    opcion.textContent = coordinador;
+                opcion.value = coordinador;
+                opcion.textContent = coordinador;
 
-                    selectorCoordinador.appendChild(opcion);
+                selectorCoordinador.appendChild(opcion);
 
-                });
+            });
 
-            }
+        }
         // ==========================
         // PUNTO DE VENTA
         // ==========================
