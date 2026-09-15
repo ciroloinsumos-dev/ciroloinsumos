@@ -46,6 +46,8 @@ const configuracion = await API.obtenerConfiguracion();
             boton.textContent = "Registrando operación...";
 
             try {
+                
+            console.log("COORDINADOR A ENVIAR:", coordinador);
 
             const respuesta = await API.crearOperacion(
                     id,
