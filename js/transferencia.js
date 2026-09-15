@@ -23,7 +23,7 @@ const configuracion = await API.obtenerConfiguracion();
 
         titulo.textContent = producto.titulo;
 
-        precio.textContent = CONFIG.MONEDA + " " + producto.precio;
+        precio.textContent = formatearPrecio(producto.precio);
 
         alias.textContent = configuracion.alias;
 

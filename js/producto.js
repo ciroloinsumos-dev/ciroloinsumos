@@ -168,12 +168,11 @@ async function iniciar() {
         // DATOS DEL PRODUCTO
         // ==========================
 
-                document.getElementById("categoria").textContent =
+        document.getElementById("categoria").textContent =
             producto.categoria;
 
-        document.getElementById("precio").textContent =
-            CONFIG.MONEDA + " " +
-            Number(producto.precio).toLocaleString("es-AR");
+        document.getElementById("precio").textContent = 
+            formatearPrecio(producto.precio);
 
         document.getElementById("marca").textContent =
             producto.marca;

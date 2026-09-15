@@ -1,3 +1,13 @@
+function formatearPrecio(valor) {
+
+    return CONFIG.MONEDA + " " +
+        Number(valor).toLocaleString("es-AR", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        });
+
+}
+
 const API = {
 
     async crearOperacion(id, medio, coordinador) {
