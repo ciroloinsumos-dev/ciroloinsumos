@@ -1011,4 +1011,16 @@ h1 {
 
     }
 
+    .foto-marco {
+    overflow: hidden;
+        }
+
+        #foto {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            background: #ffffff !important;
+        }
+
 }
