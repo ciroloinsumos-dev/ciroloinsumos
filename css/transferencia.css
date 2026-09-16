@@ -1,426 +1,365 @@
-body {
+body{
 
-    margin: 0;
-    padding: 30px 20px;
+    margin:0;
+    padding:20px;
 
-    background:
-        radial-gradient(
-            circle at top,
-            #242424 0%,
-            #111111 45%,
-            #050505 100%
-        );
+    background:#080808;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 
-    color: white;
+    color:white;
+
+}
+
+.tarjeta{
+
+    max-width:420px;
+    margin:auto;
+
+    background:#111111;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.45);
+
+}
+
+#foto{
+
+    width:100%;
+    height:240px;
+
+    object-fit:contain;
+
+    background:#ffffff;
+
+    border-bottom:1px solid #333;
+
+}
+
+.contenido{
+
+    padding:24px;
+
+}
+
+h1{
+
+    margin:0 0 20px;
+
+    text-align:center;
+
+    font-size:24px;
+
+    color:#ffffff;
 
 }
 
 
-.tarjeta {
+/* ============================
+   Instrucciones
+============================ */
 
-    max-width: 420px;
+.instrucciones{
 
-    margin: auto;
+    background:#1b1b1b;
 
-    background: #111111;
+    border:1px solid #f58220;
 
-    border-radius: 22px;
+    border-radius:12px;
 
-    overflow: hidden;
+    padding:16px;
 
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.45);
+    margin-bottom:25px;
+
+}
+
+.instrucciones h3{
+
+    margin:0 0 10px;
+
+    color:#f58220;
+
+    font-size:16px;
+
+}
+
+.instrucciones ol{
+
+    margin:0;
+
+    padding-left:18px;
+
+    color:#dddddd;
+
+    line-height:1.6;
 
 }
 
 
-#foto {
+/* ============================
+   Importe
+============================ */
 
-    display: block;
+.precio{
 
-    width: 100%;
+    background:#181818;
 
-    height: 260px;
+    border:2px solid #f58220;
 
-    object-fit: contain;
+    border-radius:14px;
 
-    background: #ffffff;
+    padding:18px;
 
-    border-bottom: 1px solid #eeeeee;
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.precio label{
+
+    display:block;
+
+    color:#aaaaaa;
+
+    font-size:13px;
+
+    margin-bottom:6px;
+
+}
+
+#precio{
+
+    margin:0 0 15px;
+
+    color:#ffffff;
+
+    font-size:34px;
+
+    font-weight:bold;
 
 }
 
 
-.contenido {
+/* ============================
+   Datos bancarios
+============================ */
 
-    padding: 28px;
+.dato{
+
+    margin-bottom:22px;
+
+}
+
+.dato label{
+
+    display:block;
+
+    font-size:13px;
+
+    color:#aaaaaa;
+
+    margin-bottom:6px;
+
+}
+
+.valor{
+
+    background:#1b1b1b;
+
+    border:1px solid #3a3a3a;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    color:#ffffff;
+
+    font-family:monospace;
+
+    font-size:16px;
+
+    word-break:break-all;
 
 }
 
 
-h1 {
+/* ============================
+   Botones
+============================ */
 
-    margin: 0 0 24px;
+button{
 
-    text-align: center;
-
-    font-size: 25px;
-
-    font-weight: 800;
-
-    color: #ffffff;
+    transition:.2s;
 
 }
 
+button:hover{
 
-.instrucciones {
-
-    background: #1c1c1c;
-
-    border: 1px solid #333333;
-
-    border-left: 4px solid #f58220;
-
-    border-radius: 12px;
-
-    padding: 17px;
-
-    margin-bottom: 25px;
+    transform:translateY(-1px);
 
 }
 
+button:active{
 
-.instrucciones h3 {
-
-    margin: 0 0 10px;
-
-    color: #f58220;
-
-    font-size: 16px;
+    transform:scale(.98);
 
 }
-
-
-.instrucciones ol {
-
-    margin: 0;
-
-    padding-left: 18px;
-
-    color: #dddddd;
-
-    line-height: 1.6;
-
-}
-
-
-.instrucciones li {
-
-    margin-bottom: 4px;
-
-}
-
-
-.precio {
-
-    background: #181818;
-
-    border: 2px solid #f58220;
-
-    border-radius: 14px;
-
-    padding: 18px;
-
-    text-align: center;
-
-    margin-bottom: 28px;
-
-}
-
-
-.precio label {
-
-    display: block;
-
-    color: #aaaaaa;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    letter-spacing: .5px;
-
-    margin-bottom: 7px;
-
-}
-
-
-#precio {
-
-    margin: 0;
-
-    color: #ffffff;
-
-    font-size: 38px;
-
-    font-weight: 900;
-
-}
-
-
-.dato {
-
-    margin-bottom: 22px;
-
-}
-
-
-.dato label {
-
-    display: block;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    color: #aaaaaa;
-
-    margin-bottom: 7px;
-
-}
-
-
-.valor {
-
-    background: #1c1c1c;
-
-    border: 1px solid #3a3a3a;
-
-    border-radius: 10px;
-
-    padding: 13px;
-
-    margin-bottom: 10px;
-
-    color: #ffffff;
-
-    font-family: monospace;
-
-    font-size: 16px;
-
-    word-break: break-all;
-
-}
-
-
-button {
-
-    transition: .2s;
-
-}
-
-
-button:hover {
-
-    transform: translateY(-1px);
-
-}
-
-
-button:active {
-
-    transform: scale(.98);
-
-}
-
 
 .dato button,
-.btn-secundario {
+.btn-secundario{
 
-    width: 100%;
+    width:100%;
 
-    padding: 13px;
+    padding:13px;
 
-    border: none;
+    border:none;
 
-    border-radius: 10px;
+    border-radius:10px;
 
-    background: #303030;
+    background:#303030;
 
-    color: #ffffff;
+    color:#ffffff;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    font-size: 15px;
+    font-size:15px;
 
-    font-weight: bold;
+    font-weight:bold;
 
 }
-
 
 .dato button:hover,
-.btn-secundario:hover {
+.btn-secundario:hover{
 
-    background: #3d3d3d;
+    background:#3d3d3d;
+
+}
+
+#btnConfirmar{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#f58220;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-top:30px;
+
+}
+
+#btnConfirmar:hover{
+
+    background:#ff922f;
 
 }
 
 
-#btnConfirmar {
+/* ============================
+   Loader
+============================ */
 
-    width: 100%;
+.loader{
 
-    padding: 17px;
+    position:fixed;
 
-    border: none;
+    inset:0;
 
-    border-radius: 12px;
+    background:rgba(0,0,0,.9);
 
-    background: #f58220;
+    display:flex;
 
-    color: #ffffff;
+    justify-content:center;
 
-    font-size: 17px;
+    align-items:center;
 
-    font-weight: 800;
-
-    cursor: pointer;
-
-    margin-top: 30px;
-
-    box-shadow:
-        0 8px 20px rgba(245,130,32,.22);
+    z-index:999;
 
 }
 
+.loader-card{
 
-#btnConfirmar:hover {
+    background:#181818;
 
-    background: #ff922f;
+    color:white;
 
-}
+    padding:35px;
 
+    border-radius:20px;
 
-#btnConfirmar:disabled {
+    text-align:center;
 
-    opacity: .6;
-
-    cursor: wait;
-
-    transform: none;
+    box-shadow:0 8px 20px rgba(0,0,0,.5);
 
 }
 
+.spinner{
 
-.loader {
+    width:45px;
 
-    position: fixed;
+    height:45px;
 
-    inset: 0;
+    border:5px solid #333;
 
-    background: rgba(0,0,0,.92);
+    border-top:5px solid #f58220;
 
-    display: flex;
+    border-radius:50%;
 
-    justify-content: center;
+    animation:girar 1s linear infinite;
 
-    align-items: center;
-
-    z-index: 999;
-
-}
-
-
-.loader-card {
-
-    background: #181818;
-
-    color: #ffffff;
-
-    padding: 35px;
-
-    border-radius: 20px;
-
-    text-align: center;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.5);
+    margin:auto;
 
 }
 
+@keyframes girar{
 
-.spinner {
+    to{
 
-    width: 45px;
-
-    height: 45px;
-
-    border: 5px solid #333333;
-
-    border-top: 5px solid #f58220;
-
-    border-radius: 50%;
-
-    animation: girar 1s linear infinite;
-
-    margin: auto;
-
-}
-
-
-@keyframes girar {
-
-    to {
-
-        transform: rotate(360deg);
+        transform:rotate(360deg);
 
     }
 
 }
 
 
-@media(max-width:480px) {
+/* ============================
+   Responsive
+============================ */
 
-    body {
+@media(max-width:480px){
 
-        padding: 15px 10px;
+    body{
 
-    }
-
-
-    .tarjeta {
-
-        border-radius: 18px;
+        padding:12px;
 
     }
 
+    .contenido{
 
-    #foto {
-
-        height: 230px;
-
-    }
-
-
-    .contenido {
-
-        padding: 21px;
+        padding:20px;
 
     }
 
+    #precio{
 
-    h1 {
-
-        font-size: 22px;
-
-    }
-
-
-    #precio {
-
-        font-size: 32px;
+        font-size:30px;
 
     }
 
