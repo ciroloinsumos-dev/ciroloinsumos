@@ -364,3 +364,108 @@ button:active{
     }
 
 }
+
+/* ============================
+   HEADER
+============================ */
+
+.header {
+
+    width: 100%;
+
+    background: #080808;
+
+    border-bottom: 1px solid #292929;
+
+}
+
+
+.header-inner {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+.logo-travel-rock {
+
+    width: 105px;
+
+    height: 52px;
+
+    object-fit: contain;
+
+}
+
+
+.shop-label {
+
+    color: #f58220;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+@media(max-width:480px){
+
+    .header-inner {
+
+        height: 62px;
+
+        padding: 0 12px;
+
+    }
+
+    .logo-travel-rock {
+
+        width: 85px;
+
+        height: 45px;
+
+    }
+
+    .shop-label {
+
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+    body{
+
+        padding:12px;
+
+    }
+
+    .contenido{
+
+        padding:20px;
+
+    }
+
+    #precio{
+
+        font-size:30px;
+
+    }
+
+}

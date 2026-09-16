@@ -15,93 +15,194 @@
 
 <body>
 
-    <div id="loader" class="loader">
 
-        <div class="loader-card">
+<!-- ============================
+     HEADER
+============================ -->
 
-            <div class="spinner"></div>
+<header class="header">
 
-            <p>Cargando datos...</p>
+    <div class="header-inner">
 
-        </div>
+        <img
+            class="logo-travel-rock"
+            src="img/travel-rock-logo.png"
+            alt="Travel Rock"
+        >
+
+        <span class="shop-label">
+            SHOP EGRESADOS
+        </span>
 
     </div>
 
-    <main class="tarjeta">
+</header>
 
-        <img id="foto">
 
-        <div class="contenido">
+<!-- ============================
+     LOADER
+============================ -->
 
-            <h1 id="titulo"></h1>
+<div id="loader" class="loader">
 
-            <div class="instrucciones">
+    <div class="loader-card">
 
-                <h3>¿Cómo comprar?</h3>
+        <div class="spinner"></div>
 
-                <ol>
-                    <li>Copiá el Alias o el CVU.</li>
-                    <li>Realizá la transferencia por el importe indicado.</li>
-                    <li>Una vez finalizada, presioná <strong>"Ya realicé la transferencia"</strong>.</li>
-                </ol>
+        <p>Cargando datos...</p>
 
-            </div>
+    </div>
 
-            <div class="precio">
+</div>
 
-                <label>Total a pagar</label>
 
-                <h2 id="precio"></h2>
+<!-- ============================
+     TRANSFERENCIA
+============================ -->
 
-            </div>
+<main class="tarjeta">
 
-            <div class="dato">
 
-                <label>Alias</label>
+    <!-- FOTO -->
 
-                <div class="valor" id="alias"></div>
+    <img
+        id="foto"
+        alt="Producto"
+    >
 
-                <button id="copiarAlias">
-                    Copiar Alias
-                </button>
 
-            </div>
+    <div class="contenido">
 
-            <div class="dato">
 
-                <label>CVU / CBU</label>
+        <!-- TITULO -->
 
-                <div class="valor" id="cbu"></div>
+        <h1 id="titulo"></h1>
 
-                <button id="copiarCBU">
-                    Copiar CVU
-                </button>
 
-            </div>
+        <!-- INSTRUCCIONES -->
 
-            <div class="dato">
+        <div class="instrucciones">
 
-                <label>Titular</label>
+            <h3>
+                ¿Cómo comprar?
+            </h3>
 
-                <div class="valor" id="titular"></div>
+            <ol>
 
-            </div>
+                <li>
+                    Copiá el Alias o el CVU.
+                </li>
 
-            <button id="btnConfirmar">
+                <li>
+                    Realizá la transferencia por el importe indicado.
+                </li>
 
-                Ya realicé la transferencia
+                <li>
+                    Una vez finalizada, presioná
+                    <strong>
+                        "Ya realicé la transferencia"
+                    </strong>.
+                </li>
 
+            </ol>
+
+        </div>
+
+
+        <!-- IMPORTE -->
+
+        <div class="precio">
+
+            <label>
+                Total a pagar
+            </label>
+
+            <h2 id="precio"></h2>
+
+        </div>
+
+
+        <!-- ALIAS -->
+
+        <div class="dato">
+
+            <label>
+                Alias
+            </label>
+
+            <div
+                class="valor"
+                id="alias"
+            ></div>
+
+            <button id="copiarAlias">
+                Copiar Alias
             </button>
 
         </div>
 
-    </main>
 
-    <script src="js/config.js?v=4"></script>
-    <script src="js/api.js?v=1"></script>
-    <script src="js/transferencia.js?v=3"></script>
+        <!-- CVU / CBU -->
+
+        <div class="dato">
+
+            <label>
+                CVU / CBU
+            </label>
+
+            <div
+                class="valor"
+                id="cbu"
+            ></div>
+
+            <button id="copiarCBU">
+                Copiar CVU
+            </button>
+
+        </div>
+
+
+        <!-- TITULAR -->
+
+        <div class="dato">
+
+            <label>
+                Titular
+            </label>
+
+            <div
+                class="valor"
+                id="titular"
+            ></div>
+
+        </div>
+
+
+        <!-- CONFIRMAR -->
+
+        <button id="btnConfirmar">
+
+            Ya realicé la transferencia
+
+        </button>
+
+
+    </div>
+
+</main>
+
+
+<!-- ============================
+     SCRIPTS
+============================ -->
+
+<script src="js/config.js?v=4"></script>
+
+<script src="js/api.js?v=1"></script>
+
+<script src="js/transferencia.js?v=3"></script>
+
 
 </body>
 
 </html>
-
